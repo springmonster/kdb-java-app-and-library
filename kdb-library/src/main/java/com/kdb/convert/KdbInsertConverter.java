@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class KdbConverter {
+public class KdbInsertConverter {
     private static final ConcurrentHashMap<Class<?>, List<Field>> columnsMap = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<Class<?>, String[]> tablesMap = new ConcurrentHashMap<>();
 

@@ -31,5 +31,5 @@ ec1:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russi
 * Provide connection to the database
 * Provide access to the database
 * Provide annotation to the table
-* #TODO: Provide convert query result to the list of objects#
+* Provide convert query result to the list of objects
 * #TODO: Provide connection pooling#

@@ -28,11 +28,11 @@
                 <version>3.13.0</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
             <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>3.2.2</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.4</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
@@ -40,6 +40,13 @@
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
                 <version>7.0.0</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.10.1</version>
             </dependency>
 
             <!-- JUnit 5 -->

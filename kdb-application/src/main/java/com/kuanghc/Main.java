@@ -4,16 +4,20 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.kdb.config.KdbConfig;
 import com.kdb.connection.KdbConnection;
-import com.kdb.convert.KdbConverter;
+import com.kdb.convert.KdbRetrieveConverter;
+import com.kdb.convert.KdbInsertConverter;
 import com.kuanghc.model.EC1Model;
+import com.kuanghc.model.EC1Response;
 import kx.c;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         Injector injector = Guice.createInjector(binder -> {
             KdbConfig kdbConfig = new KdbConfig();
             kdbConfig.setHost("localhost");
@@ -37,10 +41,10 @@ public class Main {
         System.out.println(Arrays.toString(y0));
         System.out.println(Arrays.toString(y1));
 
-        String[] columns = KdbConverter.createColumns(EC1Model.class);
+        String[] columns = KdbInsertConverter.createColumns(EC1Model.class);
         System.out.println(Arrays.toString(columns));
 
-        Object[] rows = KdbConverter.createRows(createEC1ModelList(), EC1Model.class);
+        Object[] rows = KdbInsertConverter.createRows(createEC1ModelList(), EC1Model.class);
         System.out.println(Arrays.deepToString(rows));
 
         Object objects = new Object[]{
@@ -49,6 +53,12 @@ public class Main {
                 new c.Flip(new c.Dict(columns, rows))
         };
         kdbConnection.executeAsync(objects);
+
+        Object o1 = kdbConnection.executeSync("ec1");
+        List<Map<String, Object>> list = KdbRetrieveConverter.convertToList(o1);
+        System.out.println(list);
+        List<EC1Response> ec1Models = KdbRetrieveConverter.convertToList(list, EC1Response.class);
+        System.out.println(ec1Models);
     }
 
     private static List<EC1Model> createEC1ModelList() {
