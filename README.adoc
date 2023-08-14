@@ -1,0 +1,35 @@
+= KDB Library
+:toc:
+
+== kdb-application
+
+* start q process
+
+[source,q]
+----
+\p 5001
+----
+
+* create table and insert data
+
+[source,q]
+----
+t:([] name:`symbol$(); age:`int$())
+-
+ec1:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russia;pop:15067724 12615279 9126366 5383890)
+----
+
+* add .u.upd function to the table
+
+[source,q]
+----
+.u.upd:{[tbl;row] insert[tbl](row)}
+----
+
+== kdb-library
+
+* Provide connection to the database
+* Provide access to the database
+* Provide annotation to the table
+* #TODO: Provide convert query result to the list of objects#
+* #TODO: Provide connection pooling#
