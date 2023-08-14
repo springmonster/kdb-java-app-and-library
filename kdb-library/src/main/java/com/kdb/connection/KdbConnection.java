@@ -19,9 +19,7 @@ public class KdbConnection {
         c c;
         try {
             c = new c(kdbConfig.getHost(), kdbConfig.getPort(), kdbConfig.getCredentials());
-        } catch (kx.c.KException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (kx.c.KException | IOException e) {
             throw new RuntimeException(e);
         }
         return c;
