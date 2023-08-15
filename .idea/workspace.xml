@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="add convert query result to the list of objects">
-      <change afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbConnectionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbPoolConfig.java" afterDir="false" />
+    <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="add connection pool">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/README.adoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/annotation/Column.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/annotation/Column.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/annotation/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/annotation/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/config/KdbConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +76,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.3977591",
     "settings.editor.selected.configurable": "settings.sync",
@@ -113,14 +102,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -190,7 +171,8 @@
       <option name="presentableId" value="Default" />
       <updated>1692023512850</updated>
       <workItem from="1692023513953" duration="1994000" />
-      <workItem from="1692101895593" duration="3596000" />
+      <workItem from="1692101895593" duration="3624000" />
+      <workItem from="1692106174473" duration="82000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -216,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692025435872</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add connection pool">
+      <option name="closed" value="true" />
+      <created>1692106124966</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692106124966</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +232,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="add convert query result to the list of objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="add convert query result to the list of objects" />
+    <MESSAGE value="add connection pool" />
+    <option name="LAST_COMMIT_MESSAGE" value="add connection pool" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

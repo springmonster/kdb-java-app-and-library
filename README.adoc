@@ -33,3 +33,4 @@ ec1:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russi
 * Provide annotation to the table
 * Provide convert query result to the list of objects
 * Provide connection pooling
+* #TODO:Provide collecting class for the table when application starts, it will collect all tables and create class for each table#
