@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="add convert query result to the list of objects">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbRetrieveConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbConnectionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbPoolConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/README.adoc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Response.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kdb-library/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/annotation/Column.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/annotation/Column.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/annotation/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/annotation/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/config/KdbConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +34,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="add convert query result to the list of objects" />
+        <option name="rewordedMessage" value="add convert query result to the list of objects" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="398fc4819f4b99b1a6770ef5ce960965d7997ac7" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
@@ -44,9 +59,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2Tym5dP0vulXRcVX38hUScejam6" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -72,17 +87,23 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.3977591",
     "settings.editor.selected.configurable": "settings.sync",
     "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.kdb.connection" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.kuanghc.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.KdbConnectionFactoryTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.kuanghc.Main" />
       <module name="kdb-application" />
@@ -96,15 +117,67 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KdbConnectionFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kdb-library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kdb.pool.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kdb.connection" />
+      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConnectionFactoryTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KdbConnectionFactoryTest.executeAsync" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kdb-library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kdb.pool.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kdb.connection" />
+      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConnectionFactoryTest" />
+      <option name="METHOD_NAME" value="executeAsync" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KdbConnectionFactoryTest.executeSync" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kdb-library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kdb.pool.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kdb.connection" />
+      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConnectionFactoryTest" />
+      <option name="METHOD_NAME" value="executeSync" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KdbConnectionFactoryTest" />
+        <item itemvalue="JUnit.KdbConnectionFactoryTest.executeSync" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.KdbConnectionFactoryTest.executeAsync" />
       </list>
     </recent_temporary>
   </component>
@@ -116,7 +189,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1692023512850</updated>
-      <workItem from="1692023513953" duration="1893000" />
+      <workItem from="1692023513953" duration="1994000" />
+      <workItem from="1692101895593" duration="3596000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -126,7 +200,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692024159365</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add convert query result to the list of objects">
+      <option name="closed" value="true" />
+      <created>1692025426854</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692025426854</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add convert query result to the list of objects">
+      <option name="closed" value="true" />
+      <created>1692025435872</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692025435872</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,7 +227,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -151,5 +247,46 @@
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/kx/c.java</url>
+          <line>1566</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbConnectionFactory.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbConnectionFactory.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbConnectionFactory.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbConnectionFactory.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/pool/KdbConnectionFactory.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

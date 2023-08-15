@@ -32,4 +32,4 @@ ec1:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russi
 * Provide access to the database
 * Provide annotation to the table
 * Provide convert query result to the list of objects
-* #TODO: Provide connection pooling#
+* Provide connection pooling

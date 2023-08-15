@@ -1,5 +1,8 @@
-package com.kdb.config;
+package com.kdb.connection;
 
+import com.google.inject.Singleton;
+
+@Singleton
 public class KdbConfig {
 
     private String host;

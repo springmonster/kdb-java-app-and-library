@@ -1,60 +1,53 @@
 package com.kdb.connection;
 
 import com.google.inject.Inject;
-import com.kdb.config.KdbConfig;
+import com.kdb.pool.KdbConnectionFactory;
+import com.kdb.pool.KdbPoolConfig;
 import kx.c;
-
-import java.io.IOException;
+import org.apache.commons.pool2.ObjectPool;
+import org.apache.commons.pool2.impl.GenericObjectPool;
 
 public class KdbConnection {
 
-    private final KdbConfig kdbConfig;
+    ObjectPool<c> pool;
 
     @Inject
     public KdbConnection(KdbConfig kdbConfig) {
-        this.kdbConfig = kdbConfig;
+        this.pool = new GenericObjectPool<>(new KdbConnectionFactory(kdbConfig), new KdbPoolConfig());
     }
 
-    public c getConnection() {
-        c c;
+    public Object executeSync(String obj) {
+        c c = null;
         try {
-            c = new c(kdbConfig.getHost(), kdbConfig.getPort(), kdbConfig.getCredentials());
-        } catch (kx.c.KException | IOException e) {
-            throw new RuntimeException(e);
-        }
-        return c;
-    }
-
-    public Object executeSync(Object obj) {
-        c c = getConnection();
-        Object result;
-        try {
-            result = c.k(obj);
-        } catch (kx.c.KException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+            c = pool.borrowObject();
+            return c.k(obj);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
-            try {
-                c.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            if (c != null) {
+                try {
+                    pool.returnObject(c);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
-        return result;
     }
 
     public void executeAsync(Object obj) {
-        c c = getConnection();
+        c c = null;
         try {
+            c = pool.borrowObject();
             c.ks(obj);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
-            try {
-                c.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            if (c != null) {
+                try {
+                    pool.returnObject(c);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }

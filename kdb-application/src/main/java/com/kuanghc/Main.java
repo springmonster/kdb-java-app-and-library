@@ -1,11 +1,11 @@
 package com.kuanghc;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.kdb.config.KdbConfig;
+import com.google.inject.Module;
+import com.google.inject.*;
+import com.kdb.connection.KdbConfig;
 import com.kdb.connection.KdbConnection;
-import com.kdb.convert.KdbRetrieveConverter;
 import com.kdb.convert.KdbInsertConverter;
+import com.kdb.convert.KdbRetrieveConverter;
 import com.kuanghc.model.EC1Model;
 import com.kuanghc.model.EC1Response;
 import kx.c;
@@ -18,12 +18,20 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        Injector injector = Guice.createInjector(binder -> {
-            KdbConfig kdbConfig = new KdbConfig();
-            kdbConfig.setHost("localhost");
-            kdbConfig.setPort(5001);
+        Injector injector = Guice.createInjector(new Module() {
+            @Override
+            public void configure(Binder binder) {
+            }
 
-            binder.bind(KdbConfig.class).toInstance(kdbConfig);
+            @Provides
+            KdbConfig kdbConfig() {
+                KdbConfig kdbConfig = new KdbConfig();
+                kdbConfig.setHost("localhost");
+                kdbConfig.setPort(5001);
+                kdbConfig.setUsername("");
+                kdbConfig.setPassword("");
+                return kdbConfig;
+            }
         });
 
         KdbConnection kdbConnection = injector.getInstance(KdbConnection.class);
