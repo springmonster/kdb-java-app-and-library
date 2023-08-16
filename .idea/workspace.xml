@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="add connection pool">
-      <change afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" afterDir="false" />
+    <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="add guice init logic">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/README.adoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +83,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.3977591&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -191,7 +185,9 @@
       <workItem from="1692106174473" duration="103000" />
       <workItem from="1692188789377" duration="417000" />
       <workItem from="1692189315680" duration="1494000" />
-      <workItem from="1692190834498" duration="63000" />
+      <workItem from="1692190834498" duration="575000" />
+      <workItem from="1692191480532" duration="168000" />
+      <workItem from="1692191772397" duration="342000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -233,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692106270465</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add guice init logic">
+      <option name="closed" value="true" />
+      <created>1692190913358</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692190913358</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +264,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="add convert query result to the list of objects" />
     <MESSAGE value="add connection pool" />
-    <option name="LAST_COMMIT_MESSAGE" value="add connection pool" />
+    <MESSAGE value="add guice init logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="add guice init logic" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
@@ -306,5 +311,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

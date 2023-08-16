@@ -65,6 +65,7 @@ public class KdbInsertConverter {
             }
             String[] array = objects.toArray(new String[0]);
             columnsMap.put(clazz, objects.toArray(array));
+            fieldsMap.put(clazz, Arrays.asList(fields));
             return array;
         }
     }
