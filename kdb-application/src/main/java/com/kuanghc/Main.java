@@ -2,10 +2,12 @@ package com.kuanghc;
 
 import com.google.inject.Module;
 import com.google.inject.*;
+import com.google.inject.matcher.Matchers;
 import com.kdb.connection.KdbConfig;
 import com.kdb.connection.KdbConnection;
 import com.kdb.convert.KdbInsertConverter;
 import com.kdb.convert.KdbRetrieveConverter;
+import com.kdb.listener.ScannerTypeListener;
 import com.kuanghc.model.EC1Model;
 import com.kuanghc.model.EC1Response;
 import kx.c;
@@ -21,6 +23,7 @@ public class Main {
         Injector injector = Guice.createInjector(new Module() {
             @Override
             public void configure(Binder binder) {
+                binder.bindListener(Matchers.any(), new ScannerTypeListener("com.kuanghc.model"));
             }
 
             @Provides
@@ -49,6 +52,9 @@ public class Main {
         System.out.println(Arrays.toString(y0));
         System.out.println(Arrays.toString(y1));
 
+        String table = KdbInsertConverter.createTable(EC1Model.class);
+        System.out.println(table);
+
         String[] columns = KdbInsertConverter.createColumns(EC1Model.class);
         System.out.println(Arrays.toString(columns));
 
@@ -57,7 +63,7 @@ public class Main {
 
         Object objects = new Object[]{
                 ".u.upd".toCharArray(),
-                "ec1",
+                table,
                 new c.Flip(new c.Dict(columns, rows))
         };
         kdbConnection.executeAsync(objects);

@@ -12,8 +12,28 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class KdbInsertConverter {
-    private static final ConcurrentHashMap<Class<?>, List<Field>> columnsMap = new ConcurrentHashMap<>();
-    private static final ConcurrentHashMap<Class<?>, String[]> tablesMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Class<?>, List<Field>> fieldsMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Class<?>, String[]> columnsMap = new ConcurrentHashMap<>();
+
+    private static final ConcurrentHashMap<Class<?>, String> tablesMap = new ConcurrentHashMap<>();
+
+    public static String createTable(Class<?> clazz) {
+        if (clazz == null) {
+            throw new IllegalArgumentException("Class cannot be null");
+        }
+        if (!clazz.isAnnotationPresent(Table.class)) {
+            throw new IllegalArgumentException("Class must be annotated with @Table");
+        }
+        if (tablesMap.containsKey(clazz)) {
+            System.out.println("Returning from cache");
+            return tablesMap.get(clazz);
+        } else {
+            Table annotation = clazz.getAnnotation(Table.class);
+            String value = annotation.value();
+            tablesMap.put(clazz, value);
+            return value;
+        }
+    }
 
     public static String[] createColumns(Class<?> clazz) {
         if (clazz == null) {
@@ -32,9 +52,9 @@ public class KdbInsertConverter {
                 Column.class).size()) {
             throw new IllegalArgumentException("Class must have all fields annotated with @Column");
         }
-        if (tablesMap.containsKey(clazz)) {
+        if (columnsMap.containsKey(clazz)) {
             System.out.println("Returning from cache");
-            return tablesMap.get(clazz);
+            return columnsMap.get(clazz);
         } else {
             List<String> objects = new ArrayList<>();
             Field[] fields = FieldUtils.getAllFields(clazz);
@@ -44,7 +64,7 @@ public class KdbInsertConverter {
                 objects.add(annotation.value());
             }
             String[] array = objects.toArray(new String[0]);
-            tablesMap.put(clazz, objects.toArray(array));
+            columnsMap.put(clazz, objects.toArray(array));
             return array;
         }
     }
@@ -52,12 +72,12 @@ public class KdbInsertConverter {
     public static Object[] createRows(List<?> list, Class<?> clazz) {
         Field[] fields;
 
-        if (columnsMap.containsKey(clazz)) {
+        if (fieldsMap.containsKey(clazz)) {
             System.out.println("Returning from cache");
-            fields = columnsMap.get(clazz).toArray(new Field[0]);
+            fields = fieldsMap.get(clazz).toArray(new Field[0]);
         } else {
             fields = FieldUtils.getFieldsWithAnnotation(clazz, Column.class);
-            columnsMap.put(clazz, Arrays.asList(fields));
+            fieldsMap.put(clazz, Arrays.asList(fields));
         }
 
         int size = list.size();
