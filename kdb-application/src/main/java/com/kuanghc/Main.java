@@ -81,7 +81,8 @@ public class Main {
                 new EC1Model("b", "bb", System.currentTimeMillis()),
                 new EC1Model("c", "cc", System.currentTimeMillis()),
                 new EC1Model("d", "dd", System.currentTimeMillis()),
-                new EC1Model("e", "ee", System.currentTimeMillis())
+                new EC1Model("e", "ee", System.currentTimeMillis()),
+                new EC1Model("f", "ff", Long.MIN_VALUE)
         );
     }
 }

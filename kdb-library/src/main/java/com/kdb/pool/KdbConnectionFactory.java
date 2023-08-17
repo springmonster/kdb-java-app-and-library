@@ -9,7 +9,7 @@ import org.apache.commons.pool2.impl.DefaultPooledObject;
 import java.io.IOException;
 
 public class KdbConnectionFactory extends BasePooledObjectFactory<c> {
-    private KdbConfig kdbConfig;
+    private final KdbConfig kdbConfig;
 
     public KdbConnectionFactory(KdbConfig kdbConfig) {
         this.kdbConfig = kdbConfig;

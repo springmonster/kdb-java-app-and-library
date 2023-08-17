@@ -34,3 +34,7 @@ ec1:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russi
 * Provide convert query result to the list of objects
 * Provide connection pooling
 * Provide collecting class for the table when guice initialize
+
+== Links
+
+* https://www.timestored.com/b/forums/topic/nulls-from-java-api/[Inserting nulls from Java API]

@@ -1,18 +1,22 @@
 package com.kdb.pool;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.kdb.connection.KdbConfig;
 import kx.c;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
-import java.time.Duration;
-
+@Singleton
 public class KdbPoolConfig extends GenericObjectPoolConfig<c> {
-    public KdbPoolConfig() {
-        this.setMaxTotal(8);
-        this.setMaxIdle(5);
-        this.setMinIdle(1);
-        this.setMaxWait(Duration.ofMinutes(3));
-        this.setTimeBetweenEvictionRuns(Duration.ofMinutes(5));
-        this.setTestWhileIdle(true);
-        this.setJmxEnabled(false);
+
+    @Inject
+    public KdbPoolConfig(KdbConfig kdbConfig) {
+        this.setMaxTotal(kdbConfig.getMaxTotal());
+        this.setMaxIdle(kdbConfig.getMaxIdle());
+        this.setMinIdle(kdbConfig.getMinIdle());
+        this.setMaxWait(kdbConfig.getMaxWait());
+        this.setTimeBetweenEvictionRuns(kdbConfig.getTimeBetweenEvictionRuns());
+        this.setTestWhileIdle(kdbConfig.isTestWhileIdle());
+        this.setJmxEnabled(kdbConfig.isJmxEnabled());
     }
 }

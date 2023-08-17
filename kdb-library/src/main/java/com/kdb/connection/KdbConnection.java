@@ -13,7 +13,7 @@ public class KdbConnection {
 
     @Inject
     public KdbConnection(KdbConfig kdbConfig) {
-        this.pool = new GenericObjectPool<>(new KdbConnectionFactory(kdbConfig), new KdbPoolConfig());
+        this.pool = new GenericObjectPool<>(new KdbConnectionFactory(kdbConfig), new KdbPoolConfig(kdbConfig));
     }
 
     public Object executeSync(String obj) {
