@@ -81,7 +81,7 @@ public class KdbInsertConverter {
             fieldsMap.put(clazz, Arrays.asList(fields));
         }
 
-        int size = list.size();
+        final int size = list.size();
 
         List<Object> result = new ArrayList<>();
 
@@ -90,7 +90,7 @@ public class KdbInsertConverter {
             result.add(array);
         }
 
-        for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < size; i++) {
             Object o = list.get(i);
 
             for (int j = 0; j < fields.length; j++) {
