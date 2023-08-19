@@ -1,8 +1,6 @@
 package com.kdb.connection;
 
 import com.google.inject.Inject;
-import com.kdb.pool.KdbConnectionFactory;
-import com.kdb.pool.KdbPoolConfig;
 import kx.c;
 import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
@@ -13,7 +11,7 @@ public class KdbConnection {
 
     @Inject
     public KdbConnection(KdbConfig kdbConfig) {
-        this.pool = new GenericObjectPool<>(new KdbConnectionFactory(kdbConfig), new KdbPoolConfig(kdbConfig));
+        this.pool = new GenericObjectPool<>(new KdbConnectionFactory(kdbConfig), new com.kdb.connection.KdbConnectionPoolConfig(kdbConfig));
     }
 
     public Object executeSync(String obj) {

@@ -1,4 +1,4 @@
-package com.kdb.pool;
+package com.kdb.connection;
 
 import com.kdb.connection.KdbConfig;
 import kx.c;

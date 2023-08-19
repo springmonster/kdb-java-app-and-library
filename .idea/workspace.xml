@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="add guice init logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +41,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///opt/homebrew/Cellar/maven/3.8.3/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar!/org/apache/commons/pool2/ObjectPool.class" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="KubernetesApiPersistence">
+    <option name="namespacesByContext">
+      <map>
+        <entry key="docker-desktop" value="default" />
+      </map>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -83,7 +89,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.3977591",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
   }
@@ -165,6 +171,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="kdb-java-app-and-library" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="kdb-java-app-and-library" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -193,6 +212,13 @@
       <workItem from="1692192380372" duration="454000" />
       <workItem from="1692276666503" duration="1418000" />
       <workItem from="1692278633259" duration="721000" />
+      <workItem from="1692371996684" duration="40000" />
+      <workItem from="1692372049879" duration="201000" />
+      <workItem from="1692372301634" duration="232000" />
+      <workItem from="1692372536446" duration="30000" />
+      <workItem from="1692372584059" duration="620000" />
+      <workItem from="1692373222302" duration="218000" />
+      <workItem from="1692426996197" duration="146000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -258,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692277480367</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add guice init logic">
+      <option name="closed" value="true" />
+      <created>1692372016892</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1692372016892</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
