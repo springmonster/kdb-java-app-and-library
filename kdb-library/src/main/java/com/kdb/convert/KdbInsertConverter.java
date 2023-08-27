@@ -25,7 +25,6 @@ public class KdbInsertConverter {
             throw new IllegalArgumentException("Class must be annotated with @Table");
         }
         if (tablesMap.containsKey(clazz)) {
-            System.out.println("Returning from cache");
             return tablesMap.get(clazz);
         } else {
             Table annotation = clazz.getAnnotation(Table.class);
@@ -61,6 +60,9 @@ public class KdbInsertConverter {
             for (Field field : fields) {
                 Column annotation = field
                         .getAnnotation(Column.class);
+                if (null == annotation.value()) {
+                    throw new IllegalArgumentException("Field with @Column must have value");
+                }
                 objects.add(annotation.value());
             }
             String[] array = objects.toArray(new String[0]);
@@ -74,7 +76,6 @@ public class KdbInsertConverter {
         Field[] fields;
 
         if (fieldsMap.containsKey(clazz)) {
-            System.out.println("Returning from cache");
             fields = fieldsMap.get(clazz).toArray(new Field[0]);
         } else {
             fields = FieldUtils.getFieldsWithAnnotation(clazz, Column.class);
