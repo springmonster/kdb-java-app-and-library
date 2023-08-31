@@ -2,7 +2,6 @@ package com.kdb.connection;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.kdb.connection.KdbConfig;
 import kx.c;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 

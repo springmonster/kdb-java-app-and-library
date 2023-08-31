@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
+    <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="fix bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionPoolConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionPoolConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbRetrieveConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbRetrieveConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +122,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="KdbConnectionFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
       <extension name="coverage">
@@ -200,7 +211,9 @@
       <workItem from="1692373222302" duration="218000" />
       <workItem from="1692426996197" duration="146000" />
       <workItem from="1692435795415" duration="320000" />
-      <workItem from="1693142523968" duration="140000" />
+      <workItem from="1693142523968" duration="842000" />
+      <workItem from="1693224128170" duration="109000" />
+      <workItem from="1693484467276" duration="449000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -282,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692435874442</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix bugs">
+      <option name="closed" value="true" />
+      <created>1693142749930</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693142749930</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +332,8 @@
     <MESSAGE value="add connection pool" />
     <MESSAGE value="add guice init logic" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="fix bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bugs" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
@@ -332,7 +354,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionPoolConfig.java</url>
-          <line>19</line>
+          <line>18</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>

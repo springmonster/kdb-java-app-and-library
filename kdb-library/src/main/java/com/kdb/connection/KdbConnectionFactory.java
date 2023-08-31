@@ -17,36 +17,36 @@ public class KdbConnectionFactory extends BasePooledObjectFactory<c> {
 
     @Override
     public c create() {
-        c c;
+        c kdbConnection;
         try {
-            c = new c(kdbConfig.getHost(), kdbConfig.getPort(), kdbConfig.getCredentials());
+            kdbConnection = new c(kdbConfig.getHost(), kdbConfig.getPort(), kdbConfig.getCredentials());
         } catch (kx.c.KException | IOException e) {
             throw new RuntimeException(e);
         }
-        return c;
+        return kdbConnection;
     }
 
     @Override
-    public PooledObject<c> wrap(c c) {
-        return new DefaultPooledObject<>(c);
+    public PooledObject<c> wrap(c kdbConnection) {
+        return new DefaultPooledObject<>(kdbConnection);
     }
 
     @Override
     public void destroyObject(PooledObject<c> p) throws Exception {
-        c object = p.getObject();
-        if (object != null) {
-            object.close();
+        c kdbConnection = p.getObject();
+        if (kdbConnection != null) {
+            kdbConnection.close();
         }
     }
 
     @Override
     public boolean validateObject(PooledObject<c> p) {
         try {
-            c c = p.getObject();
-            if (c.s == null || !c.s.isConnected()) {
+            c kdbConnection = p.getObject();
+            if (kdbConnection.s == null || !kdbConnection.s.isConnected()) {
                 return false;
             }
-            c.k("1");
+            kdbConnection.k("1");
         } catch (c.KException | IOException e) {
             return false;
         }

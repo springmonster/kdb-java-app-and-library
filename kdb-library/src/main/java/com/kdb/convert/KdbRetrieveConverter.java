@@ -32,6 +32,7 @@ public class KdbRetrieveConverter {
     private static List<Map<String, Object>> convertFlip(c.Flip flip) throws UnsupportedEncodingException {
         // Convert columns
         String[] columns = getColumns(flip);
+
         // Convert rows
         List<Object[]> rows = getRows(flip);
 

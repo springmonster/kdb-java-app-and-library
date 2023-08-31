@@ -15,16 +15,16 @@ public class KdbConnection {
     }
 
     public Object executeSync(String obj) {
-        c c = null;
+        c kdbConnection = null;
         try {
-            c = pool.borrowObject();
-            return c.k(obj);
+            kdbConnection = pool.borrowObject();
+            return kdbConnection.k(obj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
-            if (c != null) {
+            if (kdbConnection != null) {
                 try {
-                    pool.returnObject(c);
+                    pool.returnObject(kdbConnection);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -33,16 +33,16 @@ public class KdbConnection {
     }
 
     public void executeAsync(Object obj) {
-        c c = null;
+        c kdbConnection = null;
         try {
-            c = pool.borrowObject();
-            c.ks(obj);
+            kdbConnection = pool.borrowObject();
+            kdbConnection.ks(obj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
-            if (c != null) {
+            if (kdbConnection != null) {
                 try {
-                    pool.returnObject(c);
+                    pool.returnObject(kdbConnection);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

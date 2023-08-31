@@ -13,6 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class KdbInsertConverter {
     private static final ConcurrentHashMap<Class<?>, List<Field>> fieldsMap = new ConcurrentHashMap<>();
+
     private static final ConcurrentHashMap<Class<?>, String[]> columnsMap = new ConcurrentHashMap<>();
 
     private static final ConcurrentHashMap<Class<?>, String> tablesMap = new ConcurrentHashMap<>();
