@@ -4,7 +4,6 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.matcher.Matchers;
-import com.google.inject.name.Names;
 import com.kdb.annotation.ReadOnly;
 import com.kdb.annotation.WriteOnly;
 import com.kdb.connection.KdbConfig;
@@ -26,31 +25,30 @@ public class KdbModule extends AbstractModule {
   @Override
   protected void configure() {
     binder().bindListener(Matchers.any(), new ScannerTypeListener(this.scannerPackage));
-    Names.bindProperties(binder(), this.properties);
   }
 
   @Provides
   @Singleton
   @WriteOnly
   KdbConfig writeOnlyKdbConfig() {
-    KdbConfig kdbConfig = new KdbConfig();
-    kdbConfig.setHost(properties.getProperty("writeOnly.kdb.hostname"));
-    kdbConfig.setPort(Integer.parseInt(properties.getProperty("writeOnly.kdb.port")));
-    kdbConfig.setUsername(properties.getProperty("writeOnly.kdb.username"));
-    kdbConfig.setPassword(properties.getProperty("writeOnly.kdb.password"));
-    return kdbConfig;
+    return new KdbConfig(
+        properties.getProperty("writeOnly.kdb.hostname"),
+        Integer.parseInt(properties.getProperty("writeOnly.kdb.port")),
+        properties.getProperty("writeOnly.kdb.username"),
+        properties.getProperty("writeOnly.kdb.password")
+    );
   }
 
   @Provides
   @Singleton
   @ReadOnly
   KdbConfig readOnlyKdbConfig() {
-    KdbConfig kdbConfig = new KdbConfig();
-    kdbConfig.setHost(properties.getProperty("readOnly.kdb.hostname"));
-    kdbConfig.setPort(Integer.parseInt(properties.getProperty("readOnly.kdb.port")));
-    kdbConfig.setUsername(properties.getProperty("readOnly.kdb.username"));
-    kdbConfig.setPassword(properties.getProperty("readOnly.kdb.password"));
-    return kdbConfig;
+    return new KdbConfig(
+        properties.getProperty("readOnly.kdb.hostname"),
+        Integer.parseInt(properties.getProperty("readOnly.kdb.port")),
+        properties.getProperty("readOnly.kdb.username"),
+        properties.getProperty("readOnly.kdb.password")
+    );
   }
 
   @Provides

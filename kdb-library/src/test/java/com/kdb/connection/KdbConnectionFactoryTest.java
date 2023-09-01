@@ -17,9 +17,7 @@ class KdbConnectionFactoryTest {
   @BeforeEach
   void setUp() {
     injector = Guice.createInjector(binder -> {
-      KdbConfig kdbConfig = new KdbConfig();
-      kdbConfig.setHost("localhost");
-      kdbConfig.setPort(5001);
+      KdbConfig kdbConfig = new KdbConfig("localhost", 5001, "", "");
 
       binder.bind(KdbConfig.class).annotatedWith(WriteOnly.class)
           .toInstance(kdbConfig);
@@ -38,17 +36,17 @@ class KdbConnectionFactoryTest {
   @Test
   void should_query_success() {
     KdbConnection kdbConnection = injector.getInstance(KdbConnection.class);
-    Object o = kdbConnection.executeSync("1+1");
+    Object o = kdbConnection.syncExecute("1+1");
     assertEquals((long) 2, o);
   }
 
   @Test
   void should_create_table_success() {
     KdbConnection kdbConnection = injector.getInstance(KdbConnection.class);
-    kdbConnection.executeAsync(
+    kdbConnection.asyncExecute(
         "test:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russia;pop:15067724 12615279 9126366 5383890)");
 
-    Object o = kdbConnection.executeSync("test");
+    Object o = kdbConnection.syncExecute("test");
 
     c.Flip flip = (c.Flip) o;
     System.out.println(flip);

@@ -22,8 +22,6 @@ public class Main {
 
   public static void main(String[] args) throws UnsupportedEncodingException {
 
-    final Properties properties = new Properties();
-
     Injector injector = Guice.createInjector(new AbstractModule() {
       @Override
       protected void configure() {
@@ -35,14 +33,15 @@ public class Main {
         } catch (IOException e) {
           throw new RuntimeException(e);
         }
+
         install(new KdbModule(properties, "com.kuanghc.model"));
       }
     });
 
     KdbConnection kdbConnection = injector.getInstance(KdbConnection.class);
 
-    kdbConnection.executeSync("t1:([] `a`b`c; 1 2 3)");
-    Object o = kdbConnection.executeSync("t1");
+    kdbConnection.asyncExecute("t1:([] `a`b`c; 1 2 3)");
+    Object o = kdbConnection.syncExecute("t1");
     c.Flip flip = (c.Flip) o;
     System.out.println(flip);
     Object[] x = flip.x;
@@ -64,13 +63,13 @@ public class Main {
     System.out.println(Arrays.deepToString(rows));
 
     Object objects = new Object[]{
-        ".u.upd".toCharArray(),
-        table,
+        ".u.upd1".toCharArray(),
+        "ec1",
         new c.Flip(new c.Dict(columns, rows))
     };
-    kdbConnection.executeAsync(objects);
+    kdbConnection.asyncExecute(objects);
 
-    Object o1 = kdbConnection.executeSync("ec1");
+    Object o1 = kdbConnection.syncExecute("ec1");
     List<Map<String, Object>> list = KdbRetrieveConverter.convertToList(o1);
     System.out.println(list);
     List<EC1Response> ec1Models = KdbRetrieveConverter.convertToList(list, EC1Response.class);
@@ -84,7 +83,7 @@ public class Main {
         new EC1Model("c", "cc", System.currentTimeMillis()),
         new EC1Model("d", "dd", System.currentTimeMillis()),
         new EC1Model("e", "ee", System.currentTimeMillis()),
-        new EC1Model("f", "ff", Long.MIN_VALUE)
+        new EC1Model("f", "ff", System.currentTimeMillis())
     );
   }
 }

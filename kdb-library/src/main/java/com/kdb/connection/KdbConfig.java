@@ -5,39 +5,30 @@ import com.google.inject.Singleton;
 @Singleton
 public class KdbConfig {
 
-  private String host;
+  private final String host;
 
-  private int port;
+  private final int port;
 
-  private String username;
+  private final String username;
 
-  private String password;
+  private final String password;
 
-  public String getCredentials() {
-    return username + ":" + password;
+  public KdbConfig(String host, int port, String username, String password) {
+    this.host = host;
+    this.port = port;
+    this.username = username;
+    this.password = password;
   }
 
   public String getHost() {
     return host;
   }
 
-  public void setHost(String host) {
-    this.host = host;
-  }
-
   public int getPort() {
     return port;
   }
 
-  public void setPort(int port) {
-    this.port = port;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
+  public String getCredentials() {
+    return username + ":" + password;
   }
 }

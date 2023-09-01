@@ -1,12 +1,14 @@
 package com.kdb.connection;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.kdb.annotation.ReadOnly;
 import com.kdb.annotation.WriteOnly;
 import kx.c;
 import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 
+@Singleton
 public class KdbConnection {
 
   private final ObjectPool<c> writeOnlyKdbConnectionPool;
@@ -27,11 +29,15 @@ public class KdbConnection {
         readOnlyKdbConnectionPoolConfig);
   }
 
-  public Object executeSync(String obj) {
+  public Object syncExecute(Object obj) {
     c kdbConnection = null;
     try {
       kdbConnection = this.readOnlyKdbConnectionPool.borrowObject();
-      return kdbConnection.k(obj);
+      if (obj instanceof String) {
+        return kdbConnection.k((String) obj);
+      } else {
+        return kdbConnection.k(obj);
+      }
     } catch (Exception e) {
       throw new RuntimeException(e);
     } finally {
@@ -45,12 +51,13 @@ public class KdbConnection {
     }
   }
 
-  public void executeAsync(Object obj) {
+  public void asyncExecute(Object obj) {
     c kdbConnection = null;
     try {
       kdbConnection = this.writeOnlyKdbConnectionPool.borrowObject();
       kdbConnection.ks(obj);
-      kdbConnection.k("");
+      Object k = kdbConnection.k("");
+      System.out.println("executeAsync result is " + k);
     } catch (Exception e) {
       throw new RuntimeException(e);
     } finally {
