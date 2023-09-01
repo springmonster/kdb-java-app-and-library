@@ -9,20 +9,20 @@ import org.reflections.Reflections;
 
 public class ScannerTypeListener implements TypeListener {
 
-    private final String pkg;
+  private final String pkg;
 
-    public ScannerTypeListener(String pkg) {
-        this.pkg = pkg;
+  public ScannerTypeListener(String pkg) {
+    this.pkg = pkg;
+  }
+
+  @Override
+  public <I> void hear(TypeLiteral<I> typeLiteral, TypeEncounter<I> typeEncounter) {
+    Reflections reflections = new Reflections(pkg);
+    var annotatedClasses = reflections.getTypesAnnotatedWith(Table.class);
+
+    for (Class<?> clazz : annotatedClasses) {
+      KdbInsertConverter.createTable(clazz);
+      KdbInsertConverter.createColumns(clazz);
     }
-
-    @Override
-    public <I> void hear(TypeLiteral<I> typeLiteral, TypeEncounter<I> typeEncounter) {
-        Reflections reflections = new Reflections(pkg);
-        var annotatedClasses = reflections.getTypesAnnotatedWith(Table.class);
-
-        for (Class<?> clazz : annotatedClasses) {
-            KdbInsertConverter.createTable(clazz);
-            KdbInsertConverter.createColumns(clazz);
-        }
-    }
+  }
 }

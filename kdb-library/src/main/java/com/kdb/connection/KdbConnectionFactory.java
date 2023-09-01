@@ -1,55 +1,54 @@
 package com.kdb.connection;
 
-import com.kdb.connection.KdbConfig;
+import java.io.IOException;
 import kx.c;
 import org.apache.commons.pool2.BasePooledObjectFactory;
 import org.apache.commons.pool2.PooledObject;
 import org.apache.commons.pool2.impl.DefaultPooledObject;
 
-import java.io.IOException;
-
 public class KdbConnectionFactory extends BasePooledObjectFactory<c> {
-    private final KdbConfig kdbConfig;
 
-    public KdbConnectionFactory(KdbConfig kdbConfig) {
-        this.kdbConfig = kdbConfig;
-    }
+  private final KdbConfig kdbConfig;
 
-    @Override
-    public c create() {
-        c kdbConnection;
-        try {
-            kdbConnection = new c(kdbConfig.getHost(), kdbConfig.getPort(), kdbConfig.getCredentials());
-        } catch (kx.c.KException | IOException e) {
-            throw new RuntimeException(e);
-        }
-        return kdbConnection;
-    }
+  public KdbConnectionFactory(KdbConfig kdbConfig) {
+    this.kdbConfig = kdbConfig;
+  }
 
-    @Override
-    public PooledObject<c> wrap(c kdbConnection) {
-        return new DefaultPooledObject<>(kdbConnection);
+  @Override
+  public c create() {
+    c kdbConnection;
+    try {
+      kdbConnection = new c(kdbConfig.getHost(), kdbConfig.getPort(), kdbConfig.getCredentials());
+    } catch (kx.c.KException | IOException e) {
+      throw new RuntimeException(e);
     }
+    return kdbConnection;
+  }
 
-    @Override
-    public void destroyObject(PooledObject<c> p) throws Exception {
-        c kdbConnection = p.getObject();
-        if (kdbConnection != null) {
-            kdbConnection.close();
-        }
-    }
+  @Override
+  public PooledObject<c> wrap(c kdbConnection) {
+    return new DefaultPooledObject<>(kdbConnection);
+  }
 
-    @Override
-    public boolean validateObject(PooledObject<c> p) {
-        try {
-            c kdbConnection = p.getObject();
-            if (kdbConnection.s == null || !kdbConnection.s.isConnected()) {
-                return false;
-            }
-            kdbConnection.k("1");
-        } catch (c.KException | IOException e) {
-            return false;
-        }
-        return true;
+  @Override
+  public void destroyObject(PooledObject<c> p) throws Exception {
+    c kdbConnection = p.getObject();
+    if (kdbConnection != null) {
+      kdbConnection.close();
     }
+  }
+
+  @Override
+  public boolean validateObject(PooledObject<c> p) {
+    try {
+      c kdbConnection = p.getObject();
+      if (kdbConnection.s == null || !kdbConnection.s.isConnected()) {
+        return false;
+      }
+      kdbConnection.k("1");
+    } catch (c.KException | IOException e) {
+      return false;
+    }
+    return true;
+  }
 }
