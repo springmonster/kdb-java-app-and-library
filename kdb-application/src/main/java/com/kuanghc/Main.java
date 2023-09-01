@@ -1,21 +1,12 @@
 package com.kuanghc;
 
-import com.google.inject.Binder;
+import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Module;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
-import com.google.inject.matcher.Matchers;
-import com.google.inject.name.Names;
-import com.kdb.annotation.ReadOnly;
-import com.kdb.annotation.WriteOnly;
-import com.kdb.connection.KdbConfig;
+import com.kdb.KdbModule;
 import com.kdb.connection.KdbConnection;
-import com.kdb.connection.KdbConnectionPoolConfig;
 import com.kdb.convert.KdbInsertConverter;
 import com.kdb.convert.KdbRetrieveConverter;
-import com.kdb.listener.ScannerTypeListener;
 import com.kuanghc.model.EC1Model;
 import com.kuanghc.model.EC1Response;
 import java.io.IOException;
@@ -33,74 +24,18 @@ public class Main {
 
     final Properties properties = new Properties();
 
-    Injector injector = Guice.createInjector(new Module() {
+    Injector injector = Guice.createInjector(new AbstractModule() {
       @Override
-      public void configure(Binder binder) {
-        binder.bindListener(Matchers.any(), new ScannerTypeListener("com.kuanghc.model"));
-
-        Properties properties = getProperties();
-        Names.bindProperties(binder, properties);
-      }
-
-      @Provides
-      @Singleton
-      @WriteOnly
-      KdbConfig writeOnlyKdbConfig() {
-        KdbConfig kdbConfig = new KdbConfig();
-        kdbConfig.setHost(properties.getProperty("writeOnly.kdb.hostname"));
-        kdbConfig.setPort(Integer.parseInt(properties.getProperty("writeOnly.kdb.port")));
-        kdbConfig.setUsername(properties.getProperty("writeOnly.kdb.username"));
-        kdbConfig.setPassword(properties.getProperty("writeOnly.kdb.password"));
-        return kdbConfig;
-      }
-
-      @Provides
-      @Singleton
-      @ReadOnly
-      KdbConfig readOnlyKdbConfig() {
-        KdbConfig kdbConfig = new KdbConfig();
-        kdbConfig.setHost(properties.getProperty("readOnly.kdb.hostname"));
-        kdbConfig.setPort(Integer.parseInt(properties.getProperty("readOnly.kdb.port")));
-        kdbConfig.setUsername(properties.getProperty("readOnly.kdb.username"));
-        kdbConfig.setPassword(properties.getProperty("readOnly.kdb.password"));
-        return kdbConfig;
-      }
-
-      @Provides
-      @Singleton
-      @WriteOnly
-      KdbConnectionPoolConfig writeOnlyKdbConnectionPoolConfig() {
-        return new KdbConnectionPoolConfig(
-            Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxTotal")),
-            Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxIdle")),
-            Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.minIdle")),
-            Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxWait"))
-        );
-      }
-
-      @Provides
-      @Singleton
-      @ReadOnly
-      KdbConnectionPoolConfig readOnlyKdbConnectionPoolConfig() {
-        return new KdbConnectionPoolConfig(
-            Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxTotal")),
-            Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxIdle")),
-            Integer.parseInt(properties.getProperty("readOnly.kdb.pool.minIdle")),
-            Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxWait"))
-        );
-      }
-
-      @Provides
-      @Singleton
-      Properties getProperties() {
+      protected void configure() {
+        Properties properties = new Properties();
+        InputStream inputStream = KdbModule.class.getClassLoader()
+            .getResourceAsStream("application-dev.properties");
         try {
-          InputStream resourceAsStream = this.getClass().getClassLoader()
-              .getResourceAsStream("application.properties");
-          properties.load(resourceAsStream);
+          properties.load(inputStream);
         } catch (IOException e) {
           throw new RuntimeException(e);
         }
-        return properties;
+        install(new KdbModule(properties, "com.kuanghc.model"));
       }
     });
 
