@@ -1,6 +1,15 @@
 = KDB Library
 :toc:
 
+== technical stack
+
+* kdb
+* java
+* guice
+* apache commons
+* guava
+* gson
+
 == kdb-application
 
 * start q process
@@ -35,6 +44,6 @@ ec1:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russi
 * Provide connection pooling
 * Provide collecting class for the table when guice initialize
 
-== Links
+== links
 
 * https://www.timestored.com/b/forums/topic/nulls-from-java-api/[Inserting nulls from Java API]

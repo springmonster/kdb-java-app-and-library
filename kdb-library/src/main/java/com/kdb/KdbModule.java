@@ -31,7 +31,7 @@ public class KdbModule extends AbstractModule {
   @Singleton
   @WriteOnly
   KdbConfig writeOnlyKdbConfig() {
-    return new KdbConfig(
+    return KdbConfig.create(
         properties.getProperty("writeOnly.kdb.hostname"),
         Integer.parseInt(properties.getProperty("writeOnly.kdb.port")),
         properties.getProperty("writeOnly.kdb.username"),
@@ -43,7 +43,7 @@ public class KdbModule extends AbstractModule {
   @Singleton
   @ReadOnly
   KdbConfig readOnlyKdbConfig() {
-    return new KdbConfig(
+    return KdbConfig.create(
         properties.getProperty("readOnly.kdb.hostname"),
         Integer.parseInt(properties.getProperty("readOnly.kdb.port")),
         properties.getProperty("readOnly.kdb.username"),

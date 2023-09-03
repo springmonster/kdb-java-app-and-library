@@ -17,7 +17,7 @@ class KdbConnectionFactoryTest {
   @BeforeEach
   void setUp() {
     injector = Guice.createInjector(binder -> {
-      KdbConfig kdbConfig = new KdbConfig("localhost", 5001, "", "");
+      KdbConfig kdbConfig = KdbConfig.create("localhost", 5001, "", "");
 
       binder.bind(KdbConfig.class).annotatedWith(WriteOnly.class)
           .toInstance(kdbConfig);
