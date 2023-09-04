@@ -31,6 +31,11 @@ public class KdbModule extends AbstractModule {
   @Singleton
   @WriteOnly
   KdbConfig writeOnlyKdbConfig() {
+    boolean writeOnlyEnabled = Boolean.parseBoolean(
+        properties.getProperty("writeOnly.kdb.enabled", "false"));
+    if (!writeOnlyEnabled) {
+      return null;
+    }
     return KdbConfig.create(
         properties.getProperty("writeOnly.kdb.hostname"),
         Integer.parseInt(properties.getProperty("writeOnly.kdb.port")),
@@ -43,6 +48,11 @@ public class KdbModule extends AbstractModule {
   @Singleton
   @ReadOnly
   KdbConfig readOnlyKdbConfig() {
+    boolean readOnlyEnabled = Boolean.parseBoolean(
+        properties.getProperty("readOnly.kdb.enabled", "false"));
+    if (!readOnlyEnabled) {
+      return null;
+    }
     return KdbConfig.create(
         properties.getProperty("readOnly.kdb.hostname"),
         Integer.parseInt(properties.getProperty("readOnly.kdb.port")),
@@ -55,6 +65,11 @@ public class KdbModule extends AbstractModule {
   @Singleton
   @WriteOnly
   KdbConnectionPoolConfig writeOnlyKdbConnectionPoolConfig() {
+    boolean writeOnlyEnabled = Boolean.parseBoolean(
+        properties.getProperty("writeOnly.kdb.enabled", "false"));
+    if (!writeOnlyEnabled) {
+      return null;
+    }
     return new KdbConnectionPoolConfig(
         Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxTotal")),
         Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxIdle")),
@@ -67,6 +82,11 @@ public class KdbModule extends AbstractModule {
   @Singleton
   @ReadOnly
   KdbConnectionPoolConfig readOnlyKdbConnectionPoolConfig() {
+    boolean readOnlyEnabled = Boolean.parseBoolean(
+        properties.getProperty("readOnly.kdb.enabled", "false"));
+    if (!readOnlyEnabled) {
+      return null;
+    }
     return new KdbConnectionPoolConfig(
         Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxTotal")),
         Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxIdle")),

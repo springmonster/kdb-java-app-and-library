@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.kdb.annotation.ReadOnly;
 import com.kdb.annotation.WriteOnly;
+import javax.annotation.Nullable;
 import kx.c;
 import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
@@ -11,22 +12,26 @@ import org.apache.commons.pool2.impl.GenericObjectPool;
 @Singleton
 public class KdbConnection {
 
-  private final ObjectPool<c> writeOnlyKdbConnectionPool;
+  private ObjectPool<c> writeOnlyKdbConnectionPool;
 
-  private final ObjectPool<c> readOnlyKdbConnectionPool;
+  private ObjectPool<c> readOnlyKdbConnectionPool;
 
   @Inject
-  public KdbConnection(@WriteOnly KdbConfig writeOnlyKdbConfig,
-      @WriteOnly KdbConnectionPoolConfig writeOnlyKdbConnectionPoolConfig,
-      @ReadOnly KdbConfig readOnlyKdbConfig,
-      @ReadOnly KdbConnectionPoolConfig readOnlyKdbConnectionPoolConfig) {
-    this.writeOnlyKdbConnectionPool = new GenericObjectPool<>(
-        new KdbConnectionFactory(writeOnlyKdbConfig),
-        writeOnlyKdbConnectionPoolConfig);
+  public KdbConnection(@WriteOnly @Nullable KdbConfig writeOnlyKdbConfig,
+      @WriteOnly @Nullable KdbConnectionPoolConfig writeOnlyKdbConnectionPoolConfig,
+      @ReadOnly @Nullable KdbConfig readOnlyKdbConfig,
+      @ReadOnly @Nullable KdbConnectionPoolConfig readOnlyKdbConnectionPoolConfig) {
+    if (writeOnlyKdbConfig != null && writeOnlyKdbConnectionPoolConfig != null) {
+      this.writeOnlyKdbConnectionPool = new GenericObjectPool<>(
+          new KdbConnectionFactory(writeOnlyKdbConfig),
+          writeOnlyKdbConnectionPoolConfig);
+    }
 
-    this.readOnlyKdbConnectionPool = new GenericObjectPool<>(
-        new KdbConnectionFactory(readOnlyKdbConfig),
-        readOnlyKdbConnectionPoolConfig);
+    if (readOnlyKdbConfig != null && readOnlyKdbConnectionPoolConfig != null) {
+      this.readOnlyKdbConnectionPool = new GenericObjectPool<>(
+          new KdbConnectionFactory(readOnlyKdbConfig),
+          readOnlyKdbConnectionPoolConfig);
+    }
   }
 
   public Object syncExecute(Object obj) {
