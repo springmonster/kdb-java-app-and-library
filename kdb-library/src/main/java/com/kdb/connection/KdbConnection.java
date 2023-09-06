@@ -1,5 +1,6 @@
 package com.kdb.connection;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.kdb.annotation.ReadOnly;
@@ -35,6 +36,8 @@ public class KdbConnection {
   }
 
   public Object syncExecute(Object obj) {
+    Preconditions.checkNotNull(this.readOnlyKdbConnectionPool,
+        "kdb read only configurations are null!");
     c kdbConnection = null;
     try {
       kdbConnection = this.readOnlyKdbConnectionPool.borrowObject();
@@ -57,6 +60,8 @@ public class KdbConnection {
   }
 
   public void asyncExecute(Object obj) {
+    Preconditions.checkNotNull(this.writeOnlyKdbConnectionPool,
+        "kdb write only configurations are null!");
     c kdbConnection = null;
     try {
       kdbConnection = this.writeOnlyKdbConnectionPool.borrowObject();
