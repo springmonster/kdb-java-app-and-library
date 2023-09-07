@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
+      <change afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/convert/KdbInsertConverterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/model/Stock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -112,6 +113,7 @@
       <recent name="com.kdb.connection" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.kdb.convert" />
       <recent name="com.kdb.connection" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -119,7 +121,7 @@
       <recent name="com.kuanghc.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.KdbInsertConverterTest.createTable">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -185,22 +187,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KdbConfigTest.getCredentials_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kdb-library" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kdb.connection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kdb.connection" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConfigTest" />
-      <option name="METHOD_NAME" value="getCredentials_success" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="KdbConfigTest.getPort_failure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
       <extension name="coverage">
@@ -217,48 +203,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KdbConfigTest.getPort_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KdbInsertConverterTest.createTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.kdb.connection.*" />
+          <option name="PATTERN" value="com.kdb.convert.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.kdb.connection" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConfigTest" />
-      <option name="METHOD_NAME" value="getPort_success" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KdbConnectionFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kdb-library" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kdb.connection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kdb.connection" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConnectionFactoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KdbConnectionFactoryTest.executeAsync" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kdb-library" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kdb.connection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kdb.connection" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConnectionFactoryTest" />
-      <option name="METHOD_NAME" value="executeAsync" />
+      <option name="PACKAGE_NAME" value="com.kdb.convert" />
+      <option name="MAIN_CLASS_NAME" value="com.kdb.convert.KdbInsertConverterTest" />
+      <option name="METHOD_NAME" value="createTable" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -279,11 +234,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KdbInsertConverterTest.createTable" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.KdbConfigTest.getPort_failure" />
         <item itemvalue="JUnit.KdbConfigTest" />
         <item itemvalue="JUnit.KdbConfigTest.getCredentials_failure" />
-        <item itemvalue="JUnit.KdbConfigTest.getCredentials_success" />
       </list>
     </recent_temporary>
   </component>
@@ -328,7 +283,7 @@
       <workItem from="1694002561434" duration="118000" />
       <workItem from="1694002684763" duration="34000" />
       <workItem from="1694002734219" duration="359000" />
-      <workItem from="1694003097148" duration="970000" />
+      <workItem from="1694003097148" duration="1178000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -474,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694003380845</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694090758807</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1694090758807</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
