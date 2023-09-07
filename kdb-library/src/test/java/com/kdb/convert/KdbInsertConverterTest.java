@@ -12,6 +12,10 @@ class KdbInsertConverterTest {
   void createTable() {
     String table = kdbInsertConverter.createTable(Stock.class);
     Assertions.assertEquals("stock", table);
+
+    Assertions.assertThrows(NullPointerException.class, () -> {
+      kdbInsertConverter.createTable(null);
+    });
   }
 
   @Test
