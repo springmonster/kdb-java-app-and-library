@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +328,7 @@
       <workItem from="1694002561434" duration="118000" />
       <workItem from="1694002684763" duration="34000" />
       <workItem from="1694002734219" duration="359000" />
-      <workItem from="1694003097148" duration="262000" />
+      <workItem from="1694003097148" duration="970000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -468,7 +466,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693828429106</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694003380845</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694003380845</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,16 +527,6 @@
           <url>file://$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java</url>
           <line>28</line>
           <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnection.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

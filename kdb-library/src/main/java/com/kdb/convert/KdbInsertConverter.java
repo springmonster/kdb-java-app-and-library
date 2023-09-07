@@ -1,5 +1,7 @@
 package com.kdb.convert;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import com.kdb.annotation.Column;
 import com.kdb.annotation.Table;
 import java.lang.reflect.Field;
@@ -19,12 +21,12 @@ public class KdbInsertConverter {
   private static final ConcurrentHashMap<Class<?>, String> tablesMap = new ConcurrentHashMap<>();
 
   public static String createTable(Class<?> clazz) {
-    if (clazz == null) {
-      throw new IllegalArgumentException("Class cannot be null");
-    }
+    checkNotNull(clazz);
+
     if (!clazz.isAnnotationPresent(Table.class)) {
       throw new IllegalArgumentException("Class must be annotated with @Table");
     }
+
     if (tablesMap.containsKey(clazz)) {
       return tablesMap.get(clazz);
     } else {
@@ -36,9 +38,8 @@ public class KdbInsertConverter {
   }
 
   public static String[] createColumns(Class<?> clazz) {
-    if (clazz == null) {
-      throw new IllegalArgumentException("Class cannot be null");
-    }
+    checkNotNull(clazz);
+
     if (!clazz.isAnnotationPresent(Table.class)) {
       throw new IllegalArgumentException("Class must be annotated with @Table");
     }
