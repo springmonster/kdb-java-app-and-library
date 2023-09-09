@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/convert/KdbInsertConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/convert/KdbInsertConverterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbEntityParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbRetrieveConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbEntityGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/convert/KdbInsertConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/convert/KdbEntityParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +125,7 @@
       <recent name="com.kuanghc.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KdbInsertConverterTest.createTable">
+  <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -147,10 +152,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -202,16 +205,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KdbInsertConverterTest.createTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KdbEntityParserTest.createTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.kdb.convert.*" />
+          <option name="PATTERN" value="com.kdb.convert.KdbEntityParser" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.kdb.convert" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.convert.KdbInsertConverterTest" />
+      <option name="MAIN_CLASS_NAME" value="com.kdb.convert.KdbEntityParserTest" />
       <option name="METHOD_NAME" value="createTable" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -233,7 +236,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.KdbInsertConverterTest.createTable" />
+        <item itemvalue="JUnit.KdbEntityParserTest.createTable" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.KdbConfigTest.getPort_failure" />
         <item itemvalue="JUnit.KdbConfigTest" />
@@ -282,7 +285,8 @@
       <workItem from="1694002561434" duration="118000" />
       <workItem from="1694002684763" duration="34000" />
       <workItem from="1694002734219" duration="359000" />
-      <workItem from="1694003097148" duration="1231000" />
+      <workItem from="1694003097148" duration="1254000" />
+      <workItem from="1694224124603" duration="463000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -444,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694090966211</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694091017563</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1694091017563</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

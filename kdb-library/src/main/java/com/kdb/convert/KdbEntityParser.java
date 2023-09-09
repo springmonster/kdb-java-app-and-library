@@ -12,7 +12,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
 
-public class KdbInsertConverter {
+/**
+ * This class is used to parse entity to kdb object
+ */
+public class KdbEntityParser {
 
   private static final ConcurrentHashMap<Class<?>, List<Field>> fieldsMap = new ConcurrentHashMap<>();
 

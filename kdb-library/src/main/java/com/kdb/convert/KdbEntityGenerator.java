@@ -7,7 +7,10 @@ import java.util.List;
 import java.util.Map;
 import kx.c;
 
-public class KdbRetrieveConverter {
+/**
+ * This class is used to generate entity from kdb object
+ */
+public class KdbEntityGenerator {
 
   private static final Gson GSON = new Gson();
 
