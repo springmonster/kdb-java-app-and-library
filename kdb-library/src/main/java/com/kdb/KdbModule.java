@@ -70,12 +70,13 @@ public class KdbModule extends AbstractModule {
     if (!writeOnlyEnabled) {
       return null;
     }
-    return new KdbConnectionPoolConfig(
-        Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxTotal")),
-        Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxIdle")),
-        Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.minIdle")),
-        Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxWait"))
-    );
+
+    return new KdbConnectionPoolConfig.KdbConnectionPoolConfigBuilder()
+        .setMaxIdle(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxIdle")))
+        .setMaxTotal(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxTotal")))
+        .setMinIdle(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.minIdle")))
+        .setMaxWait(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxWait")))
+        .build();
   }
 
   @Provides
@@ -87,11 +88,11 @@ public class KdbModule extends AbstractModule {
     if (!readOnlyEnabled) {
       return null;
     }
-    return new KdbConnectionPoolConfig(
-        Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxTotal")),
-        Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxIdle")),
-        Integer.parseInt(properties.getProperty("readOnly.kdb.pool.minIdle")),
-        Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxWait"))
-    );
+    return new KdbConnectionPoolConfig.KdbConnectionPoolConfigBuilder()
+        .setMaxIdle(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxIdle")))
+        .setMaxTotal(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxTotal")))
+        .setMinIdle(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.minIdle")))
+        .setMaxWait(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxWait")))
+        .build();
   }
 }

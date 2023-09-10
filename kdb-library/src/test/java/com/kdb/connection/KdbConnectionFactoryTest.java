@@ -24,7 +24,13 @@ class KdbConnectionFactoryTest {
       binder.bind(KdbConfig.class).annotatedWith(ReadOnly.class)
           .toInstance(kdbConfig);
 
-      KdbConnectionPoolConfig kdbConnectionPoolConfig = new KdbConnectionPoolConfig(10, 10, 4, 10);
+      KdbConnectionPoolConfig kdbConnectionPoolConfig =
+          new KdbConnectionPoolConfig.KdbConnectionPoolConfigBuilder()
+              .setMaxIdle(10)
+              .setMaxTotal(10)
+              .setMinIdle(1)
+              .setMaxWait(10)
+              .build();
 
       binder.bind(KdbConnectionPoolConfig.class).annotatedWith(WriteOnly.class)
           .toInstance(kdbConnectionPoolConfig);
@@ -43,10 +49,10 @@ class KdbConnectionFactoryTest {
   @Test
   void should_create_table_success() {
     KdbConnection kdbConnection = injector.getInstance(KdbConnection.class);
-    kdbConnection.asyncExecute(
-        "test:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russia;pop:15067724 12615279 9126366 5383890)");
+    kdbConnection.syncExecute(
+        "test1:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russia;pop:15067724 12615279 9126366 5383890)");
 
-    Object o = kdbConnection.syncExecute("test");
+    Object o = kdbConnection.syncExecute("test1");
 
     c.Flip flip = (c.Flip) o;
     System.out.println(flip);

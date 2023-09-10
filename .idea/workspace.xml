@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/model/EC1Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbInsertConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbEntityParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbRetrieveConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbEntityGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/convert/KdbInsertConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/convert/KdbEntityParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/KdbModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/KdbModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionPoolConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionPoolConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +122,7 @@
       <recent name="com.kuanghc.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.java in kdb-library">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -139,26 +136,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.kuanghc.Main" />
-      <module name="kdb-application" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kuanghc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KdbConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KdbConnectionFactoryTest.should_create_table_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
       <extension name="coverage">
         <pattern>
@@ -167,39 +153,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.kdb.connection" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConfigTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KdbConfigTest.getCredentials_failure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kdb-library" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kdb.connection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kdb.connection" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConfigTest" />
-      <option name="METHOD_NAME" value="getCredentials_failure" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KdbConfigTest.getPort_failure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kdb-library" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kdb.connection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kdb.connection" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConfigTest" />
-      <option name="METHOD_NAME" value="getPort_failure" />
+      <option name="MAIN_CLASS_NAME" value="com.kdb.connection.KdbConnectionFactoryTest" />
+      <option name="METHOD_NAME" value="should_create_table_success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -221,6 +176,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.kdb in kdb-library" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kdb-library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kdb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kdb" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in kdb-library" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kdb-library" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/kdb-library/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kdb in kdb-library" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kdb-library" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -236,11 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in kdb-library" />
+        <item itemvalue="JUnit.KdbConnectionFactoryTest.should_create_table_success" />
+        <item itemvalue="JUnit.kdb in kdb-library" />
+        <item itemvalue="JUnit.com.kdb in kdb-library" />
         <item itemvalue="JUnit.KdbEntityParserTest.createTable" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.KdbConfigTest.getPort_failure" />
-        <item itemvalue="JUnit.KdbConfigTest" />
-        <item itemvalue="JUnit.KdbConfigTest.getCredentials_failure" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +271,8 @@
       <workItem from="1694002684763" duration="34000" />
       <workItem from="1694002734219" duration="359000" />
       <workItem from="1694003097148" duration="1254000" />
-      <workItem from="1694224124603" duration="463000" />
+      <workItem from="1694224124603" duration="1121000" />
+      <workItem from="1694312631039" duration="442000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -456,7 +442,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694091017563</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694224644377</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1694224644377</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,17 +491,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java</url>
-          <line>48</line>
+          <line>54</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java</url>
-          <line>45</line>
+          <line>51</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java</url>
-          <line>28</line>
+          <line>34</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
