@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbEntityGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbEntityGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbEntityParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/convert/KdbEntityParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/integration/IntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/integration/IntegrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/System.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///opt/homebrew/Cellar/maven/3.8.3/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.2/jackson-annotations-2.15.2.jar!/com/fasterxml/jackson/annotation/JsonClassDescription.class" root0="SKIP_INSPECTION" />
+    <setting file="jar:///opt/homebrew/Cellar/maven/3.8.3/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.2/jackson-annotations-2.15.2.jar!/com/fasterxml/jackson/annotation/JsonFilter.class" root0="SKIP_INSPECTION" />
     <setting file="jar:///opt/homebrew/Cellar/maven/3.8.3/repository/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre-sources.jar!/com/google/common/base/Preconditions.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///opt/homebrew/Cellar/maven/3.8.3/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar!/org/apache/commons/pool2/ObjectPool.class" root0="SKIP_INSPECTION" />
     <setting file="jar:///opt/homebrew/Cellar/maven/3.8.3/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar!/org/apache/commons/pool2/PooledObject.class" root0="SKIP_INSPECTION" />
@@ -124,7 +126,7 @@
       <recent name="com.kuanghc.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.IntegrationTest">
+  <component name="RunManager" selected="JUnit.kdb-library中的所有">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -147,6 +149,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,18 +192,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in kdb-library" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kdb-library" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/kdb-library/src/test/java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="kdb in kdb-library" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kdb-library中的所有" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kdb-library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -213,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.kdb-library中的所有" />
         <item itemvalue="JUnit.IntegrationTest" />
         <item itemvalue="JUnit.IntegrationTest.should_get_connection_success" />
         <item itemvalue="JUnit.kdb in kdb-library" />
         <item itemvalue="应用程序.Main" />
-        <item itemvalue="JUnit.java in kdb-library" />
       </list>
     </recent_temporary>
   </component>
@@ -467,7 +477,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694411521936</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694423371399</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1694423371399</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
