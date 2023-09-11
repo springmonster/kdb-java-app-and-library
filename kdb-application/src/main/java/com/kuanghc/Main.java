@@ -40,7 +40,7 @@ public class Main {
 
     KdbConnection kdbConnection = injector.getInstance(KdbConnection.class);
 
-    kdbConnection.asyncExecute("t1:([] `a`b`c; 1 2 3)");
+    kdbConnection.syncExecute("t1:([] `a`b`c; 1 2 3)");
     Object o = kdbConnection.syncExecute("t1");
     c.Flip flip = (c.Flip) o;
     System.out.println(flip);
