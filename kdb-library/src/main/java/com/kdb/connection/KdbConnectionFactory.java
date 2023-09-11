@@ -33,7 +33,7 @@ public class KdbConnectionFactory extends BasePooledObjectFactory<c> {
   @Override
   public void destroyObject(PooledObject<c> p) throws Exception {
     c kdbConnection = p.getObject();
-    if (kdbConnection != null) {
+    if (kdbConnection != null && kdbConnection.s != null && kdbConnection.s.isConnected()) {
       kdbConnection.close();
     }
   }
