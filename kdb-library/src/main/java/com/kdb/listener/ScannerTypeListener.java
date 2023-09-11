@@ -4,7 +4,7 @@ import com.google.inject.TypeLiteral;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
 import com.kdb.annotation.Table;
-import com.kdb.convert.KdbEntityParser;
+import com.kdb.convert.KdbEntityGenerator;
 import org.reflections.Reflections;
 
 public class ScannerTypeListener implements TypeListener {
@@ -21,8 +21,8 @@ public class ScannerTypeListener implements TypeListener {
     var annotatedClasses = reflections.getTypesAnnotatedWith(Table.class);
 
     for (Class<?> clazz : annotatedClasses) {
-      KdbEntityParser.createTable(clazz);
-      KdbEntityParser.createColumns(clazz);
+      KdbEntityGenerator.createTable(clazz);
+      KdbEntityGenerator.createColumns(clazz);
     }
   }
 }

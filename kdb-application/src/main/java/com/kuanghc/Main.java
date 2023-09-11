@@ -5,8 +5,8 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.kdb.KdbModule;
 import com.kdb.connection.KdbConnection;
-import com.kdb.convert.KdbEntityParser;
 import com.kdb.convert.KdbEntityGenerator;
+import com.kdb.convert.KdbEntityParser;
 import com.kuanghc.model.EC1Model;
 import com.kuanghc.model.EC1Response;
 import java.io.IOException;
@@ -53,13 +53,13 @@ public class Main {
     System.out.println(Arrays.toString(y0));
     System.out.println(Arrays.toString(y1));
 
-    String table = KdbEntityParser.createTable(EC1Model.class);
+    String table = KdbEntityGenerator.createTable(EC1Model.class);
     System.out.println(table);
 
-    String[] columns = KdbEntityParser.createColumns(EC1Model.class);
+    String[] columns = KdbEntityGenerator.createColumns(EC1Model.class);
     System.out.println(Arrays.toString(columns));
 
-    Object[] rows = KdbEntityParser.createRows(createEC1ModelList(), EC1Model.class);
+    Object[] rows = KdbEntityGenerator.createRows(createEC1ModelList(), EC1Model.class);
     System.out.println(Arrays.deepToString(rows));
 
     Object objects = new Object[]{
@@ -70,9 +70,9 @@ public class Main {
     kdbConnection.asyncExecute(objects);
 
     Object o1 = kdbConnection.syncExecute("ec1");
-    List<Map<String, Object>> list = KdbEntityGenerator.convertToList(o1);
+    List<Map<String, Object>> list = KdbEntityParser.convertToList(o1);
     System.out.println(list);
-    List<EC1Response> ec1Models = KdbEntityGenerator.convertToList(list, EC1Response.class);
+    List<EC1Response> ec1Models = KdbEntityParser.convertToList(list, EC1Response.class);
     System.out.println(ec1Models);
   }
 

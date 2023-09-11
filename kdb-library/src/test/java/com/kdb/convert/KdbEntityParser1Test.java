@@ -4,17 +4,17 @@ import com.kdb.model.Stock;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class KdbEntityParserTest {
+class KdbEntityParser1Test {
 
-  private final KdbEntityParser kdbEntityParser = new KdbEntityParser();
+  private final KdbEntityGenerator kdbEntityGenerator = new KdbEntityGenerator();
 
   @Test
   void createTable() {
-    String table = kdbEntityParser.createTable(Stock.class);
+    String table = kdbEntityGenerator.createTable(Stock.class);
     Assertions.assertEquals("stock", table);
 
     Assertions.assertThrows(NullPointerException.class, () -> {
-      kdbEntityParser.createTable(null);
+      kdbEntityGenerator.createTable(null);
     });
   }
 

@@ -1,119 +1,80 @@
 package com.kdb.convert;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
-import com.kdb.annotation.Column;
-import com.kdb.annotation.Table;
-import java.lang.reflect.Field;
+import com.google.gson.Gson;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.reflect.FieldUtils;
+import java.util.Map;
+import kx.c;
 
 /**
- * This class is used to parse entity to kdb object
+ * This class is used to parse kdb query result to entity
  */
 public class KdbEntityParser {
 
-  private static final ConcurrentHashMap<Class<?>, List<Field>> fieldsMap = new ConcurrentHashMap<>();
+  private static final Gson GSON = new Gson();
 
-  private static final ConcurrentHashMap<Class<?>, String[]> columnsMap = new ConcurrentHashMap<>();
-
-  private static final ConcurrentHashMap<Class<?>, String> tablesMap = new ConcurrentHashMap<>();
-
-  public static String createTable(Class<?> clazz) {
-    checkNotNull(clazz);
-
-    if (!clazz.isAnnotationPresent(Table.class)) {
-      throw new IllegalArgumentException("Class must be annotated with @Table");
-    }
-
-    if (tablesMap.containsKey(clazz)) {
-      return tablesMap.get(clazz);
-    } else {
-      Table annotation = clazz.getAnnotation(Table.class);
-      String value = annotation.value();
-      tablesMap.put(clazz, value);
-      return value;
-    }
+  public static <T> List<T> convertToList(List<Map<String, Object>> list, Class<T> clazz) {
+    return list.stream()
+        .map(item -> GSON.fromJson(GSON.toJson(item), clazz))
+        .toList();
   }
 
-  public static String[] createColumns(Class<?> clazz) {
-    checkNotNull(clazz);
+  public static List<Map<String, Object>> convertToList(Object obj)
+      throws UnsupportedEncodingException {
+    List<Map<String, Object>> result;
 
-    if (!clazz.isAnnotationPresent(Table.class)) {
-      throw new IllegalArgumentException("Class must be annotated with @Table");
-    }
-    if (!clazz.isRecord()) {
-      throw new IllegalArgumentException("Class must be a record");
-    }
-    if (clazz.getRecordComponents().length == 0) {
-      throw new IllegalArgumentException("Class must have at least one field");
-    }
-    if (clazz.getRecordComponents().length != FieldUtils.getFieldsListWithAnnotation(clazz,
-        Column.class).size()) {
-      throw new IllegalArgumentException("Class must have all fields annotated with @Column");
-    }
-    if (columnsMap.containsKey(clazz)) {
-      System.out.println("Returning from cache");
-      return columnsMap.get(clazz);
+    if (obj instanceof c.Flip flip) {
+      result = convertFlip(flip);
     } else {
-      List<String> objects = new ArrayList<>();
-      Field[] fields = FieldUtils.getAllFields(clazz);
-      for (Field field : fields) {
-        Column annotation = field
-            .getAnnotation(Column.class);
-        if (null == annotation.value()) {
-          throw new IllegalArgumentException("Field with @Column must have value");
-        }
-        objects.add(annotation.value());
-      }
-      String[] array = objects.toArray(new String[0]);
-      columnsMap.put(clazz, objects.toArray(array));
-      fieldsMap.put(clazz, Arrays.asList(fields));
-      return array;
+      throw new RuntimeException("Object is not a Flip");
     }
+    return result;
   }
 
-  public static Object[] createRows(List<?> list, Class<?> clazz) {
-    Field[] fields;
+  private static List<Map<String, Object>> convertFlip(c.Flip flip)
+      throws UnsupportedEncodingException {
+    // Convert columns
+    String[] columns = getColumns(flip);
 
-    if (fieldsMap.containsKey(clazz)) {
-      fields = fieldsMap.get(clazz).toArray(new Field[0]);
-    } else {
-      fields = FieldUtils.getFieldsWithAnnotation(clazz, Column.class);
-      fieldsMap.put(clazz, Arrays.asList(fields));
-    }
+    // Convert rows
+    List<Object[]> rows = getRows(flip);
 
-    final int size = list.size();
+    // Combine columns and rows
+    return combineColumnsAndRows(columns, rows);
+  }
 
-    List<Object> result = new ArrayList<>();
+  private static String[] getColumns(c.Flip flip) {
+    int length = flip.x.length;
+    String[] columns = new String[length];
+    System.arraycopy(flip.x, 0, columns, 0, length);
+    return columns;
+  }
 
-    for (Field field : fields) {
-      Object array = ArrayUtils.newInstance(field.getType(), size);
-      result.add(array);
-    }
-
-    for (int i = 0; i < size; i++) {
-      Object o = list.get(i);
-
-      for (int j = 0; j < fields.length; j++) {
-        try {
-          Object[] o1 = (Object[]) result.get(j);
-          o1[i] = FieldUtils.readField(o, fields[j].getName(), true);
-        } catch (IllegalAccessException ignored) {
-        }
+  private static List<Object[]> getRows(c.Flip flip) throws UnsupportedEncodingException {
+    List<Object[]> result = new ArrayList<>();
+    int cols = flip.x.length;
+    int rows = c.n(flip.y[0]);
+    for (int i = 0; i < rows; i++) {
+      Object[] row = new Object[cols];
+      for (int j = 0; j < cols; j++) {
+        row[j] = c.at(flip.y[j], i);
       }
+      result.add(row);
     }
+    return result;
+  }
 
-    Object[] objects = new Object[result.size()];
-
-    for (int i = 0; i < result.size(); i++) {
-      objects[i] = result.get(i);
+  private static List<Map<String, Object>> combineColumnsAndRows(String[] columns,
+      List<Object[]> rows) {
+    List<Map<String, Object>> result = new ArrayList<>();
+    for (Object[] row : rows) {
+      Map<String, Object> map = new java.util.HashMap<>();
+      for (int i = 0; i < columns.length; i++) {
+        map.put(columns[i], row[i]);
+      }
+      result.add(map);
     }
-
-    return objects;
+    return result;
   }
 }
