@@ -13,6 +13,10 @@ public class KdbConnectionPoolConfig extends GenericObjectPoolConfig<c> {
     this.setMaxIdle(builder.maxIdle);
     this.setMinIdle(builder.minIdle);
     this.setMaxWait(Duration.ofSeconds(builder.maxWait));
+
+    this.setTestOnBorrow(true);
+    this.setTestOnReturn(true);
+    this.setTestWhileIdle(true);
   }
 
   public static class KdbConnectionPoolConfigBuilder {

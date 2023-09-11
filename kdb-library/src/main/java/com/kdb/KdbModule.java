@@ -75,7 +75,7 @@ public class KdbModule extends AbstractModule {
         .setMaxIdle(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxIdle")))
         .setMaxTotal(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxTotal")))
         .setMinIdle(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.minIdle")))
-        .setMaxWait(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxWait")))
+        .setMaxWait(Integer.parseInt(properties.getProperty("writeOnly.kdb.pool.maxWaitInSeconds")))
         .build();
   }
 
@@ -92,7 +92,7 @@ public class KdbModule extends AbstractModule {
         .setMaxIdle(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxIdle")))
         .setMaxTotal(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxTotal")))
         .setMinIdle(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.minIdle")))
-        .setMaxWait(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxWait")))
+        .setMaxWait(Integer.parseInt(properties.getProperty("readOnly.kdb.pool.maxWaitInSeconds")))
         .build();
   }
 }
