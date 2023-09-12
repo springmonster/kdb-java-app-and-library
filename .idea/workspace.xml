@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/integration/IntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/integration/IntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,14 +153,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
       <extension name="coverage">
@@ -276,6 +268,8 @@
       <workItem from="1694224124603" duration="1121000" />
       <workItem from="1694312631039" duration="517000" />
       <workItem from="1694411073057" duration="2782000" />
+      <workItem from="1694522990020" duration="9000" />
+      <workItem from="1694523029035" duration="124000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -485,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694423371399</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694432912697</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1694432912697</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,9 +527,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/connection/KdbConnectionFactoryTest.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="48" />
+          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/connection/KdbConnectionFactory.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

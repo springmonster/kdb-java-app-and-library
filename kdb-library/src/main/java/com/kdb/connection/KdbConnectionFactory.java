@@ -50,13 +50,16 @@ public class KdbConnectionFactory extends BasePooledObjectFactory<c> {
             "KdbConnectionFactory validateObject: " + kdbConnection + " is not connected");
         return false;
       }
-      kdbConnection.k("1");
+      Object result = kdbConnection.k("1");
+      if (result instanceof Long that) {
+        return that == 1L;
+      }
       System.out.println(
           "KdbConnectionFactory validateObject: " + kdbConnection + " is connected "
               + kdbConnection.s.isConnected());
+      return false;
     } catch (c.KException | IOException e) {
       return false;
     }
-    return true;
   }
 }
