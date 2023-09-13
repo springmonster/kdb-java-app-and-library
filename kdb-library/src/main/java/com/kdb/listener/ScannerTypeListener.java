@@ -4,7 +4,7 @@ import com.google.inject.TypeLiteral;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
 import com.kdb.annotation.Table;
-import com.kdb.convert.KdbEntityGenerator;
+import com.kdb.mapper.KdbEntityGenerator;
 import org.reflections.Reflections;
 
 public class ScannerTypeListener implements TypeListener {

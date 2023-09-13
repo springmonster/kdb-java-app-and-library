@@ -1,4 +1,4 @@
-package com.kdb.convert;
+package com.kdb.mapper;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

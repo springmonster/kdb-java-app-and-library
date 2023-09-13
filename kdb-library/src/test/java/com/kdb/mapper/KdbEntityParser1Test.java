@@ -1,4 +1,4 @@
-package com.kdb.convert;
+package com.kdb.mapper;
 
 import com.kdb.model.Stock;
 import org.junit.jupiter.api.Assertions;

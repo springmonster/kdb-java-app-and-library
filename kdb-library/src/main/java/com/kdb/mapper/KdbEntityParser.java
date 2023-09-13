@@ -1,4 +1,4 @@
-package com.kdb.convert;
+package com.kdb.mapper;
 
 import com.google.gson.Gson;
 import java.io.UnsupportedEncodingException;
