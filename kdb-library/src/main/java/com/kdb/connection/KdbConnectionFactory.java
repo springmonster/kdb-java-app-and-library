@@ -19,7 +19,6 @@ public class KdbConnectionFactory extends BasePooledObjectFactory<c> {
     c kdbConnection;
     try {
       kdbConnection = new c(kdbConfig.getHost(), kdbConfig.getPort(), kdbConfig.getCredentials());
-      System.out.println("KdbConnectionFactory create: " + kdbConnection);
     } catch (kx.c.KException | IOException e) {
       throw new RuntimeException(e);
     }
@@ -35,7 +34,6 @@ public class KdbConnectionFactory extends BasePooledObjectFactory<c> {
   public void destroyObject(PooledObject<c> p) throws Exception {
     c kdbConnection = p.getObject();
     if (kdbConnection != null && kdbConnection.s != null && kdbConnection.s.isConnected()) {
-      System.out.println("KdbConnectionFactory destroyObject: " + kdbConnection);
       kdbConnection.close();
     }
   }
@@ -44,19 +42,13 @@ public class KdbConnectionFactory extends BasePooledObjectFactory<c> {
   public boolean validateObject(PooledObject<c> p) {
     try {
       c kdbConnection = p.getObject();
-      System.out.println("KdbConnectionFactory validateObject: " + kdbConnection);
       if (kdbConnection.s == null || !kdbConnection.s.isConnected()) {
-        System.out.println(
-            "KdbConnectionFactory validateObject: " + kdbConnection + " is not connected");
         return false;
       }
       Object result = kdbConnection.k("1");
-      if (result instanceof Long that) {
-        return that == 1L;
+      if (result instanceof Long asResult) {
+        return asResult == 1L;
       }
-      System.out.println(
-          "KdbConnectionFactory validateObject: " + kdbConnection + " is connected "
-              + kdbConnection.s.isConnected());
       return false;
     } catch (c.KException | IOException e) {
       return false;

@@ -64,12 +64,12 @@ public class Main {
 
     Object objects = new Object[]{
         ".u.upd1".toCharArray(),
-        "ec1",
+        table,
         new c.Flip(new c.Dict(columns, rows))
     };
     kdbConnection.asyncExecute(objects);
 
-    Object o1 = kdbConnection.syncExecute("ec1");
+    Object o1 = kdbConnection.syncExecute(table);
     List<Map<String, Object>> list = KdbEntityParser.convertToList(o1);
     System.out.println(list);
     List<EC1Response> ec1Models = KdbEntityParser.convertToList(list, EC1Response.class);
