@@ -1,13 +1,13 @@
 package com.kdb.mapper;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import com.kdb.annotation.Column;
 import com.kdb.annotation.Table;
+import com.kdb.base.BaseEntity;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -24,7 +24,12 @@ public class KdbEntityGenerator {
   private static final ConcurrentHashMap<Class<?>, String> tablesMap = new ConcurrentHashMap<>();
 
   public static String createTable(Class<?> clazz) {
-    checkNotNull(clazz);
+    Objects.requireNonNull(clazz);
+
+    if (!BaseEntity.class.isAssignableFrom(clazz)) {
+      throw new IllegalArgumentException(
+          String.format("Class %s must be a BaseModel", clazz.getName()));
+    }
 
     if (!clazz.isAnnotationPresent(Table.class)) {
       throw new IllegalArgumentException("Class must be annotated with @Table");
@@ -41,21 +46,25 @@ public class KdbEntityGenerator {
   }
 
   public static String[] createColumns(Class<?> clazz) {
-    checkNotNull(clazz);
+    Objects.requireNonNull(clazz);
+
+    if (!BaseEntity.class.isAssignableFrom(clazz)) {
+      throw new IllegalArgumentException("Class must be a BaseModel");
+    }
 
     if (!clazz.isAnnotationPresent(Table.class)) {
       throw new IllegalArgumentException("Class must be annotated with @Table");
     }
-    if (!clazz.isRecord()) {
-      throw new IllegalArgumentException("Class must be a record");
-    }
+
     if (clazz.getRecordComponents().length == 0) {
       throw new IllegalArgumentException("Class must have at least one field");
     }
+
     if (clazz.getRecordComponents().length != FieldUtils.getFieldsListWithAnnotation(clazz,
         Column.class).size()) {
       throw new IllegalArgumentException("Class must have all fields annotated with @Column");
     }
+
     if (columnsMap.containsKey(clazz)) {
       System.out.println("Returning from cache");
       return columnsMap.get(clazz);

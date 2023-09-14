@@ -7,8 +7,8 @@ import com.kdb.KdbModule;
 import com.kdb.connection.KdbConnection;
 import com.kdb.mapper.KdbEntityGenerator;
 import com.kdb.mapper.KdbEntityParser;
-import com.kuanghc.model.EC1Model;
-import com.kuanghc.model.EC1Response;
+import com.kuanghc.entity.EC1Entity;
+import com.kuanghc.entity.EC1Response;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -53,13 +53,13 @@ public class Main {
     System.out.println(Arrays.toString(y0));
     System.out.println(Arrays.toString(y1));
 
-    String table = KdbEntityGenerator.createTable(EC1Model.class);
+    String table = KdbEntityGenerator.createTable(EC1Entity.class);
     System.out.println(table);
 
-    String[] columns = KdbEntityGenerator.createColumns(EC1Model.class);
+    String[] columns = KdbEntityGenerator.createColumns(EC1Entity.class);
     System.out.println(Arrays.toString(columns));
 
-    Object[] rows = KdbEntityGenerator.createRows(createEC1ModelList(), EC1Model.class);
+    Object[] rows = KdbEntityGenerator.createRows(createEC1ModelList(), EC1Entity.class);
     System.out.println(Arrays.deepToString(rows));
 
     Object objects = new Object[]{
@@ -76,14 +76,14 @@ public class Main {
     System.out.println(ec1Models);
   }
 
-  private static List<EC1Model> createEC1ModelList() {
+  private static List<EC1Entity> createEC1ModelList() {
     return List.of(
-        new EC1Model("a", "aa", System.currentTimeMillis()),
-        new EC1Model("b", "bb", System.currentTimeMillis()),
-        new EC1Model("c", "cc", System.currentTimeMillis()),
-        new EC1Model("d", "dd", System.currentTimeMillis()),
-        new EC1Model("e", "ee", System.currentTimeMillis()),
-        new EC1Model("f", "ff", System.currentTimeMillis())
+        new EC1Entity("a", "aa", System.currentTimeMillis()),
+        new EC1Entity("b", "bb", System.currentTimeMillis()),
+        new EC1Entity("c", "cc", System.currentTimeMillis()),
+        new EC1Entity("d", "dd", System.currentTimeMillis()),
+        new EC1Entity("e", "ee", System.currentTimeMillis()),
+        new EC1Entity("f", "ff", System.currentTimeMillis())
     );
   }
 }

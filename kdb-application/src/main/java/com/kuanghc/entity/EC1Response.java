@@ -1,4 +1,4 @@
-package com.kuanghc.model;
+package com.kuanghc.entity;
 
 
 import com.google.gson.annotations.SerializedName;
