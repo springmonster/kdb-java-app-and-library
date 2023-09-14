@@ -35,6 +35,11 @@ public class KdbEntityGenerator {
       throw new IllegalArgumentException("Class must be annotated with @Table");
     }
 
+    if (clazz.getAnnotation(Table.class).value().isEmpty()
+        || clazz.getAnnotation(Table.class).value().isBlank()) {
+      throw new IllegalArgumentException("Table name must not be empty");
+    }
+
     if (tablesMap.containsKey(clazz)) {
       return tablesMap.get(clazz);
     } else {
