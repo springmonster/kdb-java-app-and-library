@@ -23,13 +23,13 @@ public class KdbEntityGenerator {
 
   private static final ConcurrentHashMap<Class<?>, String> tablesMap = new ConcurrentHashMap<>();
 
-  public static String createTable(Class<?> clazz) {
+  public static String createTable(Class<? extends BaseEntity> clazz) {
     Objects.requireNonNull(clazz);
 
-    if (!BaseEntity.class.isAssignableFrom(clazz)) {
-      throw new IllegalArgumentException(
-          String.format("Class %s must be a BaseModel", clazz.getName()));
-    }
+//    if (!BaseEntity.class.isAssignableFrom(clazz)) {
+//      throw new IllegalArgumentException(
+//          String.format("Class %s must be a BaseModel", clazz.getName()));
+//    }
 
     if (!clazz.isAnnotationPresent(Table.class)) {
       throw new IllegalArgumentException("Class must be annotated with @Table");
@@ -45,12 +45,12 @@ public class KdbEntityGenerator {
     }
   }
 
-  public static String[] createColumns(Class<?> clazz) {
+  public static String[] createColumns(Class<? extends BaseEntity> clazz) {
     Objects.requireNonNull(clazz);
 
-    if (!BaseEntity.class.isAssignableFrom(clazz)) {
-      throw new IllegalArgumentException("Class must be a BaseModel");
-    }
+//    if (!BaseEntity.class.isAssignableFrom(clazz)) {
+//      throw new IllegalArgumentException("Class must be a BaseModel");
+//    }
 
     if (!clazz.isAnnotationPresent(Table.class)) {
       throw new IllegalArgumentException("Class must be annotated with @Table");
@@ -86,7 +86,7 @@ public class KdbEntityGenerator {
     }
   }
 
-  public static Object[] createRows(List<?> list, Class<?> clazz) {
+  public static Object[] createRows(List<?> list, Class<? extends BaseEntity> clazz) {
     Field[] fields;
 
     if (fieldsMap.containsKey(clazz)) {

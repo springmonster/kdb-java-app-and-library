@@ -1,7 +1,7 @@
 package com.kdb.mapper;
 
 import com.kdb.model.Stock;
-import com.kdb.model.StockNotImplementBaseEntity;
+import com.kdb.model.StockNoAnnotation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ class KdbEntityGeneratorTest {
     Assertions.assertEquals("stock", table);
 
     Assertions.assertThrows(IllegalArgumentException.class,
-        () -> KdbEntityGenerator.createTable(StockNotImplementBaseEntity.class));
+        () -> KdbEntityGenerator.createTable(StockNoAnnotation.class));
   }
 
   @Test

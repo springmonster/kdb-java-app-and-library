@@ -4,7 +4,9 @@ import com.google.inject.TypeLiteral;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
 import com.kdb.annotation.Table;
+import com.kdb.entity.BaseEntity;
 import com.kdb.mapper.KdbEntityGenerator;
+import java.util.List;
 import org.reflections.Reflections;
 
 public class ScannerTypeListener implements TypeListener {
@@ -18,9 +20,12 @@ public class ScannerTypeListener implements TypeListener {
   @Override
   public <I> void hear(TypeLiteral<I> typeLiteral, TypeEncounter<I> typeEncounter) {
     Reflections reflections = new Reflections(pkg);
-    var annotatedClasses = reflections.getTypesAnnotatedWith(Table.class);
+    List<Class<? extends BaseEntity>> entityClasses = reflections.getSubTypesOf(BaseEntity.class)
+        .stream()
+        .filter(clazz -> clazz.isAnnotationPresent(Table.class))
+        .toList();
 
-    for (Class<?> clazz : annotatedClasses) {
+    for (Class<? extends BaseEntity> clazz : entityClasses) {
       KdbEntityGenerator.createTable(clazz);
       KdbEntityGenerator.createColumns(clazz);
     }

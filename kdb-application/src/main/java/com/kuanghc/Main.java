@@ -34,7 +34,7 @@ public class Main {
           throw new RuntimeException(e);
         }
 
-        install(new KdbModule(properties, "com.kuanghc.model"));
+        install(new KdbModule(properties, "com.kuanghc.entity"));
       }
     });
 

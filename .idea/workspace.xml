@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/mapper/KdbEntityParser1Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/mapper/KdbEntityParser1Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/entity/EC1EntityNoAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/entity/EC1EntityNoImplementBaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/mapper/KdbEntityGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/mapper/KdbEntityGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/mapper/KdbEntityGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/mapper/KdbEntityGeneratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/model/StockNotImplementBaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/model/StockNoAnnotation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,12 +129,13 @@
       <recent name="com.kdb.connection" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kuanghc.entity" />
       <recent name="com.kdb.model" />
       <recent name="com.kdb.annotation" />
       <recent name="com.kuanghc.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.kdb-library中的com.kdb">
+  <component name="RunManager" selected="应用程序.Main">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -177,22 +185,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KdbEntityGeneratorTest.createTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kdb-library" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kdb.mapper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kdb.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.kdb.mapper.KdbEntityGeneratorTest" />
-      <option name="METHOD_NAME" value="createTable" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="KdbEntityParser1Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
       <extension name="coverage">
@@ -204,6 +196,14 @@
       <option name="PACKAGE_NAME" value="com.kdb.mapper" />
       <option name="MAIN_CLASS_NAME" value="com.kdb.mapper.KdbEntityParser1Test" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kdb-library中的所有" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kdb-library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -237,11 +237,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.Main" />
+        <item itemvalue="JUnit.kdb-library中的所有" />
+        <item itemvalue="JUnit.KdbEntityGeneratorTest" />
         <item itemvalue="JUnit.kdb-library中的com.kdb" />
         <item itemvalue="JUnit.KdbEntityParser1Test" />
-        <item itemvalue="JUnit.KdbEntityGeneratorTest" />
-        <item itemvalue="应用程序.Main" />
-        <item itemvalue="JUnit.KdbEntityGeneratorTest.createTable" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +294,7 @@
       <workItem from="1694523029035" duration="270000" />
       <workItem from="1694607800359" duration="84000" />
       <workItem from="1694614509909" duration="700000" />
-      <workItem from="1694696871752" duration="2929000" />
+      <workItem from="1694696871752" duration="3985000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -544,7 +544,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694699302314</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694699818802</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1694699818802</updated>
+    </task>
+    <task id="LOCAL-00033" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694699865971</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1694699865972</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,6 +595,17 @@
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,11 +1,10 @@
 package com.kdb.model;
 
 import com.kdb.annotation.Column;
-import com.kdb.annotation.Table;
+import com.kdb.entity.BaseEntity;
 import java.sql.Timestamp;
 
-@Table("stock")
-public class StockNotImplementBaseEntity {
+public class StockNoAnnotation implements BaseEntity {
 
   @Column("id")
   private final int id;
@@ -13,7 +12,7 @@ public class StockNotImplementBaseEntity {
   @Column("createdTimestamp")
   private final Timestamp createdTimestamp;
 
-  public StockNotImplementBaseEntity(int id, Timestamp createdTimestamp) {
+  public StockNoAnnotation(int id, Timestamp createdTimestamp) {
     this.id = id;
     this.createdTimestamp = createdTimestamp;
   }
