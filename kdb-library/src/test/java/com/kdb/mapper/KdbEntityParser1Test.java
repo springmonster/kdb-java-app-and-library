@@ -6,15 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class KdbEntityParser1Test {
 
-  private final KdbEntityGenerator kdbEntityGenerator = new KdbEntityGenerator();
-
   @Test
   void createTable() {
-    String table = kdbEntityGenerator.createTable(Stock.class);
+    String table = KdbEntityGenerator.createTable(Stock.class);
     Assertions.assertEquals("stock", table);
 
     Assertions.assertThrows(NullPointerException.class, () -> {
-      kdbEntityGenerator.createTable(null);
+      KdbEntityGenerator.createTable(null);
     });
   }
 
