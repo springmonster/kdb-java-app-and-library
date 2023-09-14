@@ -2,7 +2,7 @@ package com.kdb.model;
 
 import com.kdb.annotation.Column;
 import com.kdb.annotation.Table;
-import com.kdb.base.BaseEntity;
+import com.kdb.entity.BaseEntity;
 import java.sql.Timestamp;
 
 @Table("stock")

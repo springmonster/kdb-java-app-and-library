@@ -4,7 +4,7 @@ package com.kuanghc.entity;
 import com.google.gson.annotations.SerializedName;
 import com.kdb.annotation.Column;
 import com.kdb.annotation.Table;
-import com.kdb.base.BaseEntity;
+import com.kdb.entity.BaseEntity;
 
 @Table("ec1")
 public record EC1Entity(

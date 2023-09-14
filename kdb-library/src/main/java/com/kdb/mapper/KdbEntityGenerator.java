@@ -2,7 +2,7 @@ package com.kdb.mapper;
 
 import com.kdb.annotation.Column;
 import com.kdb.annotation.Table;
-import com.kdb.base.BaseEntity;
+import com.kdb.entity.BaseEntity;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;

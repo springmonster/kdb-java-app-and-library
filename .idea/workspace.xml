@@ -127,7 +127,7 @@
       <recent name="com.kuanghc.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KdbEntityParser1Test">
+  <component name="RunManager" selected="JUnit.kdb-library中的com.kdb">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -208,9 +208,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="kdb-library中的所有" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="kdb-library中的com.kdb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kdb-library" />
-      <option name="PACKAGE_NAME" value="" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kdb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kdb" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -231,11 +237,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.kdb-library中的com.kdb" />
         <item itemvalue="JUnit.KdbEntityParser1Test" />
         <item itemvalue="JUnit.KdbEntityGeneratorTest" />
         <item itemvalue="应用程序.Main" />
         <item itemvalue="JUnit.KdbEntityGeneratorTest.createTable" />
-        <item itemvalue="JUnit.kdb-library中的所有" />
       </list>
     </recent_temporary>
   </component>

@@ -1,4 +1,4 @@
-package com.kdb.base;
+package com.kdb.entity;
 
 public interface BaseEntity {
 
