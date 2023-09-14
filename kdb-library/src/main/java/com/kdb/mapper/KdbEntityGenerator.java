@@ -21,7 +21,7 @@ public class KdbEntityGenerator {
 
   private static final ConcurrentHashMap<Class<?>, String[]> columnsMap = new ConcurrentHashMap<>();
 
-  private static final ConcurrentHashMap<Class<?>, String> tablesMap = new ConcurrentHashMap<>();
+  private static final ConcurrentHashMap<Class<? extends BaseEntity>, String> tablesMap = new ConcurrentHashMap<>();
 
   public static String createTable(Class<? extends BaseEntity> clazz) {
     Objects.requireNonNull(clazz);

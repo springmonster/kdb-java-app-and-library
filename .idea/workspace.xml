@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/model/StockNoAnnotationValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/mapper/KdbEntityGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/mapper/KdbEntityGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/mapper/KdbEntityGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/test/java/com/kdb/mapper/KdbEntityGeneratorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +128,7 @@
       <recent name="com.kuanghc.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KdbEntityGeneratorTest.createTable">
+  <component name="RunManager" selected="应用程序.Main">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -232,9 +229,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.Main" />
         <item itemvalue="JUnit.KdbEntityGeneratorTest.createTable" />
         <item itemvalue="JUnit.kdb-library中的com.kdb" />
-        <item itemvalue="应用程序.Main" />
         <item itemvalue="JUnit.kdb-library中的所有" />
         <item itemvalue="JUnit.KdbEntityGeneratorTest" />
       </list>
@@ -290,7 +287,7 @@
       <workItem from="1694607800359" duration="84000" />
       <workItem from="1694614509909" duration="700000" />
       <workItem from="1694696871752" duration="4158000" />
-      <workItem from="1694702159390" duration="386000" />
+      <workItem from="1694702159390" duration="516000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -564,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694700905000</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694702557740</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1694702557740</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,11 +612,6 @@
           <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java</url>
           <line>27</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/mapper/KdbEntityGenerator.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
