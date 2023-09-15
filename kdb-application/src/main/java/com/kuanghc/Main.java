@@ -11,18 +11,28 @@ import com.kuanghc.entity.EC1Entity;
 import com.kuanghc.entity.EC1Response;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import kx.c;
+import org.apache.commons.collections4.CollectionUtils;
 
 public class Main {
 
-  public static void main(String[] args) throws UnsupportedEncodingException {
+  public static void main(String[] args) throws Exception {
 
-    Injector injector = Guice.createInjector(new AbstractModule() {
+    Injector injector = initGuice();
+
+    KdbConnection kdbConnection = injector.getInstance(KdbConnection.class);
+
+    createTableThenRetrieve(kdbConnection);
+
+    insertDataThenRetrieve(kdbConnection);
+  }
+
+  private static Injector initGuice() {
+    return Guice.createInjector(new AbstractModule() {
       @Override
       protected void configure() {
         Properties properties = new Properties();
@@ -37,9 +47,9 @@ public class Main {
         install(new KdbModule(properties, "com.kuanghc.entity"));
       }
     });
+  }
 
-    KdbConnection kdbConnection = injector.getInstance(KdbConnection.class);
-
+  private static void createTableThenRetrieve(KdbConnection kdbConnection) {
     kdbConnection.syncExecute("t1:([] `a`b`c; 1 2 3)");
     Object o = kdbConnection.syncExecute("t1");
     c.Flip flip = (c.Flip) o;
@@ -52,11 +62,19 @@ public class Main {
     System.out.println(Arrays.toString(y));
     System.out.println(Arrays.toString(y0));
     System.out.println(Arrays.toString(y1));
+  }
 
-    String table = KdbEntityGenerator.createTable(EC1Entity.class);
+  private static void insertDataThenRetrieve(KdbConnection kdbConnection) throws Exception {
+    List<EC1Entity> ec1ModelList = createEC1ModelList();
+
+    if (CollectionUtils.isEmpty(ec1ModelList)) {
+      throw new Exception("insert data must not be null!");
+    }
+
+    String table = KdbEntityGenerator.createTable(ec1ModelList.get(0).getClass());
     System.out.println(table);
 
-    String[] columns = KdbEntityGenerator.createColumns(EC1Entity.class);
+    String[] columns = KdbEntityGenerator.createColumns(ec1ModelList.get(0).getClass());
     System.out.println(Arrays.toString(columns));
 
     Object[] rows = KdbEntityGenerator.createRows(createEC1ModelList(), EC1Entity.class);

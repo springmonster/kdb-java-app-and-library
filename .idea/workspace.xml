@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/entity/EC1EntityNoAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-application/src/main/java/com/kuanghc/entity/EC1EntityNoAnnotation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,8 +158,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="class" />
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -287,7 +292,8 @@
       <workItem from="1694607800359" duration="84000" />
       <workItem from="1694614509909" duration="700000" />
       <workItem from="1694696871752" duration="4158000" />
-      <workItem from="1694702159390" duration="692000" />
+      <workItem from="1694702159390" duration="725000" />
+      <workItem from="1694746940209" duration="1016000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -577,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694702697612</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1694702858858</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1694702858858</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,7 +632,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/listener/ScannerTypeListener.java</url>
-          <line>26</line>
+          <line>25</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
