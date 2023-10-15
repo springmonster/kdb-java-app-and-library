@@ -8,7 +8,6 @@
 * guice
 * apache commons
 * guava
-* gson
 
 == kdb-application
 

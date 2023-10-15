@@ -1,6 +1,5 @@
 package com.kdb.mapper;
 
-import com.google.gson.Gson;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +10,6 @@ import kx.c;
  * This class is used to parse kdb query result to entity
  */
 public class KdbEntityParser {
-
-  private static final Gson GSON = new Gson();
-
-  public static <T> List<T> convertToList(List<Map<String, Object>> list, Class<T> clazz) {
-    return list.stream()
-        .map(item -> GSON.fromJson(GSON.toJson(item), clazz))
-        .toList();
-  }
 
   public static List<Map<String, Object>> convertToList(Object obj)
       throws UnsupportedEncodingException {

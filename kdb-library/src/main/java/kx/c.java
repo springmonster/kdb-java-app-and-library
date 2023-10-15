@@ -263,7 +263,8 @@ public class c {
       throws KException, IOException {
     wBuff = new byte[2 + ns(usernamepassword)];
     s = new Socket(host, port);
-//    s.setSoTimeout(100);
+    // set timeout to 30 seconds
+    s.setSoTimeout(30000);
     if (useTLS) {
       try {
         s = ((SSLSocketFactory) SSLSocketFactory.getDefault()).createSocket(s, host, port, true);

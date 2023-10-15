@@ -8,7 +8,6 @@ import com.kdb.connection.KdbConnection;
 import com.kdb.mapper.KdbEntityGenerator;
 import com.kdb.mapper.KdbEntityParser;
 import com.kuanghc.entity.EC1Entity;
-import com.kuanghc.entity.EC1Response;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -90,8 +89,6 @@ public class Main {
     Object o1 = kdbConnection.syncExecute(table);
     List<Map<String, Object>> list = KdbEntityParser.convertToList(o1);
     System.out.println(list);
-    List<EC1Response> ec1Models = KdbEntityParser.convertToList(list, EC1Response.class);
-    System.out.println(ec1Models);
   }
 
   private static List<EC1Entity> createEC1ModelList() {
