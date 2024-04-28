@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ddcc2d7f-d9aa-4231-b938-67f5fb852b3e" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/mapper/KdbEntityGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/kdb-library/src/main/java/com/kdb/mapper/KdbEntityGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +27,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;springmonster&quot;
+  }
+}</component>
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
       <RewordedCommitMessageMapping>
@@ -41,6 +46,12 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:springmonster/kdb-java-app-and-library.git&quot;,
+    &quot;accountId&quot;: &quot;8a664379-0795-45e6-9017-2f5723d1878b&quot;
+  }
+}</component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
@@ -60,14 +71,21 @@
       </map>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="customMavenHome" value="/opt/homebrew/Cellar/maven/3.8.3/libexec" />
         <option name="localRepository" value="/opt/homebrew/Cellar/maven/3.8.3/repository" />
-        <option name="mavenHome" value="/opt/homebrew/Cellar/maven/3.8.3/libexec" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
         <option name="userSettingsFile" value="/opt/homebrew/Cellar/maven/3.8.3/libexec/conf/settings.xml" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -93,6 +111,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/kuanghaochuan/Projects/kdb-java-app-and-library/kdb-library/src/test/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -130,6 +149,12 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.kdb-library中的kdb">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kdb-application" />
       <method v="2">
@@ -218,12 +243,19 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.kdb-library中的kdb" />
-        <item itemvalue="应用程序.Main" />
         <item itemvalue="JUnit.KdbEntityGeneratorTest.createTable" />
         <item itemvalue="JUnit.kdb-library中的com.kdb" />
         <item itemvalue="JUnit.kdb-library中的所有" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -284,6 +316,8 @@
       <workItem from="1697466892717" duration="83000" />
       <workItem from="1698063451072" duration="26000" />
       <workItem from="1698066636930" duration="677000" />
+      <workItem from="1698753160217" duration="70000" />
+      <workItem from="1712979578522" duration="1849000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />

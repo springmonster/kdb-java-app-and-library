@@ -46,3 +46,4 @@ ec1:([]city:`Istanbul`Moscow`London`StPetersburg;country:`Turkey`Russia`UK`Russi
 == links
 
 * https://www.timestored.com/b/forums/topic/nulls-from-java-api/[Inserting nulls from Java API]
+* https://wiki.thalesians.com/index.php/Programming/Kdb/Resources#Q_for_Mortals[Resources for Q]
